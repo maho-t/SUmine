@@ -1,24 +1,112 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column                |Type   |Options                    |
+|----------------------|-------|---------------------------|
+|last_name             |string |null: false                |
+|first_name            |string |null: false                |
+|lastname_kana         |string |null: false                |
+|firstname_kana        |string |null: false                |
+|email                 |string |null: false, unique: true  |
+|password              |string |null: false                |
+|password_confirmation |string |null: false                |
 
-Things you may want to cover:
+### Association
 
-* Ruby version
+- has_many :team_users
+- has_many :teams, through: :team_users
+- has_many :manuals
+- has_many :askings
+- has_many :schedules
+- has_many :comments
 
-* System dependencies
 
-* Configuration
+## teams テーブル
 
-* Database creation
+|Column     |Type    |Options      |
+|-----------|--------|-------------|
+|name       |string  |null: false  |
+|prof       |string  |null: false  |
+|email      |string  |             |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- has_many :team_users
+- has_many :users, through: :team_users
+- has_many :manuals
+- has_many :askings
+- has_many :schedules
+- has_many :comments
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## team_users テーブル
 
-* ...
+|Column |Type       |Options                        |
+|-------|-----------|-------------------------------|
+|team   |references |null: false, foreign_key: true |
+|user   |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
+
+
+## manuals テーブル
+
+|Column      |Type       |Options                        |
+|------------|-----------|-------------------------------|
+|title       |string     |null: false                    |
+|manual_text |integer    |null: false                    |
+|team        |references |null: false, foreign_key: true |
+|user        |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
+- has_many :comments
+
+
+## askings テーブル
+
+|Column    |Type       |Options                        |
+|----------|-----------|-------------------------------|
+|question  |text       |null: false                    |
+|answer    |text       |null: false                    |
+|team      |references |null: false, foreign_key: true |
+|user      |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
+
+
+## schedules テーブル
+
+|Column    |Type       |Options                        |
+|----------|-----------|-------------------------------|
+|title     |string     |null: false                    |
+|team      |references |null: false, foreign_key: true |
+|user      |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
+
+
+## comments テーブル
+
+|Column    |Type       |Options                        |
+|----------|-----------|-------------------------------|
+|comment   |text       |null: false                    |
+|manual    |references |null: false, foreign_key: true |
+|team      |references |null: false, foreign_key: true |
+|user      |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
+- belongs_to :manual
