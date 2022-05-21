@@ -4,4 +4,5 @@ Rails.application.routes.draw do
     :registrations => 'users/registrations'
   }
   root to: "teams#index"
+  resources :teams, only: :index
 end
