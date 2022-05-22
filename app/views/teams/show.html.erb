@@ -5,5 +5,10 @@
     <%= @team.name %>
     <%= @team.prof %>
     <%= @team.email %>
+    <%= @team.users%>
   </div>
+  <% if current_user.id == @team.user_ids%>
+    <%= link_to "編集する", edit_team_path(@team.id), method: :get, class: "item-red-btn" %>
+    <%# <%= link_to "削除する", item_path(@item.id), method: :delete, class:"item-destroy" %> %>
+  <% end %>
 </div>

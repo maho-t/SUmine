@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :set_team, only: :show
+  before_action :set_team, only: [:show, :edit, :update]
 
   def index
     @teams = Team.all
@@ -19,6 +19,18 @@ class TeamsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    if @team.user_id != current_user.id
+      redirect_to action: :show
+    end
+  end
+
+  def update
+    if @team.update(team_params)
+      redirect_to action: :show
+    end
   end
 
   private
