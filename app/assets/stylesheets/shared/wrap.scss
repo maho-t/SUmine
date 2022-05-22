@@ -7,11 +7,19 @@ main {
   flex-wrap: nowrap;
   height: 100vh;
   overflow-x: auto;
+  position: fixed;
 }
 
 main > * {
   flex-shrink: 0;
   min-height: -webkit-fill-available;
+}
+
+.main-place {
+  height: 100vh;
+  width: calc(100vw - 230px);
+  background-color: lightcoral;
+  float: right;
 }
 
 .bi {

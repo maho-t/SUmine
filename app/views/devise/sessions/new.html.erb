@@ -43,14 +43,12 @@
         <h1 class="h3 mb-3 fw-normal">LOG IN</h1>
 
         <div class="form-floating">
-          <%# <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"> %>
           <label for="floatingInput">メールアドレス</label>
-          <%= f.email_field :email, class:"form-control", id:"email", placeholder:"@seisen-u.ac.jp", autofocus: true %>
+          <%= f.email_field :email, class:"form-control", id:"email", autofocus: true %>
         </div>
         <div class="form-floating">
-          <%# <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> %>
           <label for="floatingPassword">パスワード</label>
-          <%= f.password_field :password, class:"form-control", id:"password", placeholder:"" %>
+          <%= f.password_field :password, class:"form-control", id:"password" %>
         </div>
 
         <div class="checkbox mb-3">
@@ -58,7 +56,6 @@
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <%# <button class="w-100 btn btn-lg btn-success" type="submit">ログイン</button> %>
         <%= f.submit "ログイン" ,class:"w-100 btn btn-lg btn-success" %>
         <%= render "devise/shared/links" %>
         <p class="mt-5 mb-3 text-muted">&copy; su_mine</p>
