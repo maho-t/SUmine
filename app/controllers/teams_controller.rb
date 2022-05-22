@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   def index
-    @teams = Team.includes(:user)
+    @teams = Team.all
   end
 
   def new
@@ -8,11 +8,11 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Teaem.new(team_params)
+    @team = Team.new(team_params)
     if @team.save
       redirect_to action: :index
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   private
   
   def team_params
-    params.require(:team).permit(:name, :prof, :email).merge(user_id: current_user.id)
+    params.require(:team).permit(:name, :prof, :email, user_ids: [])
   end
 
 end
