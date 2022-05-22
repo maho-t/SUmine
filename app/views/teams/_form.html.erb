@@ -1,7 +1,7 @@
 <%= form_with(model: team, local: true) do |form| %>
   <%= render 'layouts/error_messages', model: form.object %>
-  <%= form.text_area :name, placeholder: "チーム名" %>
-  <%= form.text_area :prof, placeholder: "教授名" %>
-  <%= form.text_area :email, placeholder: "メーリングリスト" %>
+  <%= form.text_field :name, placeholder: "チーム名" %>
+  <%= form.text_field :prof, placeholder: "教授名" %>
+  <%= form.text_field :email, placeholder: "メーリングリスト" %>
   <%= form.submit "SEND" %>
 <% end %>
