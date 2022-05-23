@@ -5,8 +5,9 @@
     <%= @team.name %>
     <%= @team.prof %>
     <%= @team.email %>
-    <%= @team.team_users.each do |team_user| %>
-      <%= team_user.user_id %>
+    <% @team.users.each do |users| %>
+      <%= users.last_name %>
+      <%= users.first_name %>
     <% end %>
   </div>
   <% if current_user.id == @team.user_ids %>
