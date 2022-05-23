@@ -3,5 +3,13 @@
   <%= form.text_field :name, placeholder: "チーム名" %>
   <%= form.text_field :prof, placeholder: "教授名" %>
   <%= form.text_field :email, placeholder: "メーリングリスト" %>
+  <select name="team[user_ids][]">
+    <option value="">チームに追加するユーザーを選択してください</option>
+    <% User.where.not(id: current_user.id).each do |user| %>
+      <option value=<%= user.id %>><%= user.last_name %></option>
+    <% end %>
+  </select>
+  <input name="team[user_ids][]" type="hidden" value=<%= current_user.id %>>
   <%= form.submit "SEND" %>
+
 <% end %>
