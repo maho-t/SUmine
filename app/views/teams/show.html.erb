@@ -2,9 +2,13 @@
 <div class="main-place">
   <h1>チーム詳細画面</h1>
   <div class="team-detail">
+    <h4>チーム名</h4>
     <%= @team.name %>
+    <h4>チーム担当教授</h4>
     <%= @team.prof %>
+    <h4>チームメーリス</h4>
     <%= @team.email %>
+    <h4>登録メンバー</h4>
     <% @team.users.each do |users| %>
       <%= users.last_name %>
       <%= users.first_name %>
