@@ -34,6 +34,15 @@ class TeamsController < ApplicationController
     end
   end
 
+  def destroy
+    team = Team.find(params[:id])
+    unless team.user_ids.include?(current_user.id)
+      redirect_to action: :show
+    end
+    team.destroy
+    return redirect_to root_path
+  end
+
   private
   
   def team_params
