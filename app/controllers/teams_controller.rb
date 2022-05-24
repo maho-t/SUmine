@@ -19,10 +19,11 @@ class TeamsController < ApplicationController
   end
 
   def show
+    # @team_user = Team.find(params[:user_ids])
   end
 
   def edit
-    if @team.user_id != current_user.id
+    unless @team.user_ids.include?(current_user.id)
       redirect_to action: :show
     end
   end
