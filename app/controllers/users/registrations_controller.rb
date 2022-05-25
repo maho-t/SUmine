@@ -14,8 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     mailRegex = /.*@seisen-u.ac.jp/
     email = params[:user][:email]
     if !email.match?(mailRegex)
+      flash[:alert] = 'ドメインは大学アドレスのみ有効です'
       redirect_to new_user_registration_path
-      flash[:notice] = 'ドメインは大学アドレスのみ有効です'
       return
     end
     super
