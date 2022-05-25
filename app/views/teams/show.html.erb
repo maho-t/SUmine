@@ -18,4 +18,10 @@
     <%= link_to "編集する", edit_team_path(@team.id), method: :get %>
     <%= link_to "削除する", team_path(@team.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
   <% end %>
+  <br>
+  <%# マニュアルへのリンク %>
+  <%= link_to "#{@team.name}のマニュアル", "#" %>
+  <%# 問い合わせへのリンク %>
+  <br>
+  <%= link_to "#{@team.name}の問い合わせ", "#" %>
 </div>
