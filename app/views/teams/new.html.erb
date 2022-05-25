@@ -1,9 +1,7 @@
-<%= render "shared/side_bar" %>
-<div class="main-place">
-  <div class="team-content">
-    <div class="team-container">
-      <h1>チーム新規追加画面</h1>
-      <%= render partial: "form", locals: {team: @team} %>
-    </div>
+<div class="team-content">
+  <div class="team-container">
+    <h1>チーム新規追加画面</h1>
+    <% breadcrumb :team_new %>
+    <%= render partial: "form", locals: {team: @team} %>
   </div>
 </div>

@@ -1,19 +1,15 @@
-<%= render 'shared/side_bar' %>
-<div class="main-place">
-  <div class="team-main">
-    <h1>メンバー一覧</h1>
-      <ul class="users">
-        <% @users.each do |user| %>
-          <li>
-          <%= user.last_name %>
-          <%= user.first_name %>
-          <%= user.email %>
-          <%# 一人のユーザーに対して、所属するチームの名前を繰り返す処理 %>
-          <% user.teams.each do |team| %>
-            <%= team.name %>
-          <% end %>
-          </li>
-        <% end %>
-      </ul>
-  </div>
-</div>
+<h1>メンバー一覧</h1>
+<% breadcrumb :users %>
+  <ul class="users">
+    <% @users.each do |user| %>
+      <li>
+      <%= user.last_name %>
+      <%= user.first_name %>
+      <%= user.email %>
+      <%# 一人のユーザーに対して、所属するチームの名前を繰り返す処理 %>
+      <% user.teams.each do |team| %>
+        <%= team.name %>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>

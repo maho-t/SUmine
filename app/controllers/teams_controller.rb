@@ -19,7 +19,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    # @team_user = Team.find(params[:user_ids])
   end
 
   def edit

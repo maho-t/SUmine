@@ -1,14 +1,12 @@
-<%= render "shared/side_bar" %>
-<div class="main-place">
-    <h1>チームトップ画面</h1>
-      <div class="team-create">
-        <%= link_to "チームを追加する", new_team_path, class: "post" %>
-      </div>
-  <div class="team-list">
-  <ul>
-    <% @teams.each do |team| %>
-      <%# <li><%= team.name %>
-          <li><%= link_to team.name, team_path(team.id) %></li>
-    <% end %>
-  </ul>
- </div>
+<h1>チームトップ画面</h1>
+<% breadcrumb :root %>
+<div class="team-create">
+  <%= link_to "チームを追加する", new_team_path, class: "post" %>
+</div>
+<div class="team-list">
+<ul>
+  <% @teams.each do |team| %>
+    <%# <li><%= team.name %>
+    <li><%= link_to team.name, team_path(team.id) %></li>
+  <% end %>
+</ul>
