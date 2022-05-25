@@ -7,6 +7,11 @@ crumb :users do
   parent :root
 end
 
+crumb :user_show do |user|
+  link "プロフィール", user_path(user)
+  parent :root
+end
+
 crumb :team_show do |team|
   link "#{team.name}の詳細", team_path(team)
   parent :root
