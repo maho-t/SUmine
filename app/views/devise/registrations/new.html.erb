@@ -1,9 +1,4 @@
 <!doctype html>
-<%# 大学アドレス以外の入力があったときのアラートが出ない問題 %>
-<% flash.each do |message_type, message| %>
-  <%= message %>
-<% end %>
-
 <html lang="ja">
   <head>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
@@ -40,66 +35,68 @@
     <link href="users.scss" rel="stylesheet"> 
   </head>
   <body class="text-center">
-    
     <div class="form-signin">
       <%= form_with model: @user, url: user_registration_path, method: :post, class: 'registration-main', local: true do |f| %>
       <form>
         <img class="mb-4" src="../assets/mine-logo.png" alt="" width="170" height="170">
         <h1 class="h3 mb-3 fw-normal">SIGN UP</h1>
 
+        <%# エラーメッセージの表示 %>
         <%= render 'devise/shared/error_messages', model: f.object %> 
 
-        <%# 名前を横並びにしたい %>
-      <div class="row">
-        <div class="col">
-          <label for="inputLastName" class="form-label">姓</label>
-          <%= f.text_field :last_name, class:"input-default", id:"last_name", placeholder:"例) 山田", maxlength:"15" %>
+        <div class="row">
+          <div class="col">
+            <label for="inputLastName" class="form-label">姓</label>
+            <%= f.text_field :last_name, class:"input-default", id:"last_name", placeholder:"例) 山田", maxlength:"15" %>
+          </div>
+          <div class="col">
+            <label for="inputFirstName" class="form-label">名</label>
+            <%= f.text_field :first_name, class:"input-default", id:"first_name", placeholder:"例) 太郎", maxlength:"15" %>
+          </div>
         </div>
-        <div class="col">
-          <label for="inputFirstName" class="form-label">名</label>
-          <%= f.text_field :first_name, class:"input-default", id:"first_name", placeholder:"例) 太郎", maxlength:"15" %>
+        <div class="row">
+          <div class="col">
+            <label for="inputLastNameKana" class="form-label">セイ</label>
+            <%= f.text_field :lastname_kana, class:"input-default", id:"lastname_kana", placeholder:"例) ヤマダ", maxlength:"15" %>
+          </div>
+          <div class="col">
+            <label for="inputFirstNameKana" class="form-label">メイ</label>
+            <%= f.text_field :firstname_kana, class:"input-default", id:"firstname_kana", placeholder:"例) タロウ", maxlength:"15" %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputLastNameKana" class="form-label">セイ</label>
-          <%= f.text_field :lastname_kana, class:"input-default", id:"lastname_kana", placeholder:"例) ヤマダ", maxlength:"15" %>
-        </div>
-        <div class="col">
-          <label for="inputFirstNameKana" class="form-label">メイ</label>
-          <%= f.text_field :firstname_kana, class:"input-default", id:"firstname_kana", placeholder:"例) タロウ", maxlength:"15" %>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col">
-          <label for="inputEmail" class="form-label">メールアドレス</label>
-          <%= f.email_field :email, class: "form-control", id: "email", placeholder: "@seisen-u.ac.jp"%>
+        <div class="row">
+          <div class="col">
+            <label for="inputEmail" class="form-label">メールアドレス</label>
+            <%= f.email_field :email, class: "form-control", id: "email", placeholder: "@seisen-u.ac.jp"%>
+            <div class="notice">
+              <strong><%= flash[:notice] %></strong>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="row"> 
-        <div class="col">
-          <label for="inputPassword" class="form-label">パスワード</label>
-          <%= f.password_field :password, id:"password", class: "form-control", placeholder:"6文字以上" %>
+        <div class="row"> 
+          <div class="col">
+            <label for="inputPassword" class="form-label">パスワード</label>
+            <%= f.password_field :password, id:"password", class: "form-control", placeholder:"6文字以上" %>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="inputPasswordConfirmation" class="form-label">パスワード確認</label>
-          <%= f.password_field :password_confirmation, class:"form-control", id:"password_confirmation", placeholder:"同じパスワードを入力して下さい" %>
+        <div class="row">
+          <div class="col">
+            <label for="inputPasswordConfirmation" class="form-label">パスワード確認</label>
+            <%= f.password_field :password_confirmation, class:"form-control", id:"password_confirmation", placeholder:"同じパスワードを入力して下さい" %>
+          </div>
         </div>
-      </div>
 
-        <div class="checkbox mb-3">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <%= f.submit "ユーザー登録" ,class:"w-100 btn btn-lg btn-success" %>
-        <%= render "devise/shared/links" %>
-        <p class="mt-5 mb-3 text-muted">&copy; su-mine</p>
-      <% end %>
+          <div class="checkbox mb-3">
+            <label>
+              <input type="checkbox" value="remember-me"> Remember me
+            </label>
+          </div>
+          <%= f.submit "ユーザー登録" ,class:"w-100 btn btn-lg btn-success" %>
+          <%= render "devise/shared/links" %>
+          <p class="mt-5 mb-3 text-muted">&copy; su-mine</p>
       </form>
+      <% end %>
     </div>
   </body>
 </html>

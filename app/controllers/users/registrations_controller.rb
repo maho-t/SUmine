@@ -9,13 +9,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def new
+    @user = User.new
+  end
+
   # POST /resource
   def create
     mailRegex = /.*@seisen-u.ac.jp/
     email = params[:user][:email]
     if !email.match?(mailRegex)
-      redirect_to new_user_registration_path
       flash[:notice] = 'ドメインは大学アドレスのみ有効です'
+      redirect_to new_user_registration_path
       return
     end
     super
