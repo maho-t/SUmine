@@ -34,13 +34,14 @@
     <!-- Custom styles for this template -->
     <link href="users.scss" rel="stylesheet"> 
   </head>
-  <body class="text-center">    
+  <body class="text-center">
     <div class="form-signin">
       <%= form_with model: @user, url: user_registration_path, method: :post, class: 'registration-main', local: true do |f| %>
       <form>
         <img class="mb-4" src="../assets/mine-logo.png" alt="" width="170" height="170">
         <h1 class="h3 mb-3 fw-normal">SIGN UP</h1>
 
+        <%# エラーメッセージの表示 %>
         <%= render 'devise/shared/error_messages', model: f.object %> 
 
         <div class="row">
@@ -68,6 +69,9 @@
           <div class="col">
             <label for="inputEmail" class="form-label">メールアドレス</label>
             <%= f.email_field :email, class: "form-control", id: "email", placeholder: "@seisen-u.ac.jp"%>
+            <div class="notice">
+              <strong><%= flash[:notice] %></strong>
+            </div>
           </div>
         </div>
         <div class="row"> 
