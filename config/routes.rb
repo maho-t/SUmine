@@ -7,5 +7,9 @@ Rails.application.routes.draw do
   root to: 'teams#index'
   resources :teams
   resources :users, only: [:index, :show, :destroy]
-  resources :manuals
+  resources :manuals do
+    collection do
+      get 'search'
+    end
+  end
 end

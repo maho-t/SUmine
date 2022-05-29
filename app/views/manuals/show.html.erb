@@ -4,6 +4,8 @@
   <%= link_to "編集する", edit_manual_path(@manual.id) %>
   <%= link_to "削除する", manual_path(@manual.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
 <% end %>
+<h4>チーム名</h4>
+<%= @manual.team.name%>
 <h4>マニュアルタイトル</h4>
 <%= @manual.title %>
 <h4>マニュアル詳細</h4>

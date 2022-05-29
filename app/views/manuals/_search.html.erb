@@ -1,0 +1,16 @@
+<%# 検索機能 %>
+<%= search_form_for Manual.ransack(params[:q]), url: search_manuals_path do |f| %>
+  <div class="search-field">
+    <% f.label :team_id, 'チーム' %>
+    <%= f.collection_check_boxes(:team_id, current_user.teams, :id, :name )%>
+  </div>
+  <div class="search-field">
+    <% f.label :title_cont, 'タイトル' %>
+    <br>
+    <%= f.text_field :title_cont, placeholder: 'タイトル' %>
+  </div>
+  <%= f.label :submit, class: "search-button" do %>
+    <input type= "submit" value="検索" class="send">
+    <%= f.submit :submit, id: "q_submit", style: "display: none;" %>
+  <% end %>
+<% end %>
