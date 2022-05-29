@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2022_05_26_234506) do
 
   create_table "manuals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "manual_text", null: false
+    t.text "manual_text", null: false
     t.bigint "team_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
