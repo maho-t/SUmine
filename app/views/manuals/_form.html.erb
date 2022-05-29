@@ -1,0 +1,12 @@
+<%= form_with(model: manual, local: true) do |form| %>
+  <%= render 'layouts/error_messages', model: form.object %>
+  <select name="manual[team_id]">
+    <option value="">マニュアルを作成するチームを選んでください</option>
+    <% Team.where(id: current_user.teams.ids).each do |team| %>
+      <option value=<%= team.id %>><%= team.name %></option>
+    <% end %>
+  </select>
+  <%= form.text_field :title, placeholder: "マニュアルタイトル" %>
+  <%= form.text_area :manual_text, placeholder: "マニュアル詳細" %>
+  <%= form.submit "SEND" %>
+<% end %>
