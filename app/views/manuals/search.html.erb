@@ -8,6 +8,8 @@
 
 <%# マニュアル検索結果 %>
 <% @manuals.each do |manual| %>
+  <%= manual.team.name %>のマニュアル
+  <br>
   <%= link_to manual.title, manual_path(manual.id), method: :get%>
   <br>
   作成日：<%= manual.created_at.strftime('%Y/%m/%d') %>

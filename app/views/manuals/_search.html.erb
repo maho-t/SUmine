@@ -1,4 +1,5 @@
 <%# 検索機能 %>
+<h3>検索機能箇所</h3>
 <%= search_form_for Manual.ransack(params[:q]), url: search_manuals_path do |f| %>
   <div class="search-field">
     <% f.label :team_id, 'チーム' %>
