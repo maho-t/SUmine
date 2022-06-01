@@ -8,3 +8,7 @@
 <%= @asking.question %>
 <p>回答内容</p>
 <%= @asking.answer %>
+<p>投稿者</p>
+<%= @asking.user.full_name %>
+<br>
+<%= link_to '問い合わせを編集する', edit_team_asking_path(@team.id, @asking.id)%>

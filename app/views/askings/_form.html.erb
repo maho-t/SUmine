@@ -1,4 +1,4 @@
-<%= form_with(model: [@team, @asking], local: true, url: team_askings_path) do |form| %>
+<%= form_with(model: [team, asking],url: asking.new_record? ? team_askings_path : team_asking_path(team.id, asking.id), local: true) do |form| %>
   <%= render 'layouts/error_messages', model: form.object %>
   <%= form.text_area :question, placeholder: "質問" %>
   <%= form.text_area :answer, placeholder: "回答" %>

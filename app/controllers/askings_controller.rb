@@ -27,6 +27,24 @@ class AskingsController < ApplicationController
     @asking = @team.askings.find(params[:id])
   end
 
+  def edit
+    @team = Team.find(params[:team_id])
+    @asking = @team.askings.find(params[:id])
+    unless current_user.id == @asking.user_id
+      redirect_to action: :show
+    end
+  end
+
+  def update
+    @team = Team.find(params[:team_id])
+    @asking = @team.askings.find(params[:id])
+    if @asking.update(asking_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
   private
 
   def asking_params
