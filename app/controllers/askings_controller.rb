@@ -22,6 +22,11 @@ class AskingsController < ApplicationController
     end
   end
 
+  def show
+    @team = Team.find(params[:team_id])
+    @asking = @team.askings.find(params[:id])
+  end
+
   private
 
   def asking_params

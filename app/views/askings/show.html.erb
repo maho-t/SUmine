@@ -1,0 +1,10 @@
+<h1>問い合わせ詳細画面</h1>
+
+<div class="asking-create">
+  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+</div>
+
+<P>質問内容</p>
+<%= @asking.question %>
+<p>回答内容</p>
+<%= @asking.answer %>

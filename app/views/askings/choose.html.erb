@@ -7,5 +7,5 @@
 
 <h3>投稿された問い合わせ一覧</h3>
 <% @askings.each do |asking| %>
-  <%= link_to asking.question, "#" %><br>
+  <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
 <% end %>
