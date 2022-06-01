@@ -1,0 +1,6 @@
+<%= form_with(model: [@team, @asking], local: true, url: team_askings_path) do |form| %>
+  <%= render 'layouts/error_messages', model: form.object %>
+  <%= form.text_area :question, placeholder: "質問" %>
+  <%= form.text_area :answer, placeholder: "回答" %>
+  <%= form.submit "SEND" %>
+<% end %>
