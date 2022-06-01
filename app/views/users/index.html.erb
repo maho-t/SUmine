@@ -3,12 +3,11 @@
   <ul class="users">
     <% @users.each do |user| %>
       <li>
-      <%= user.last_name %>
-      <%= user.first_name %>
-      <%= user.email %>
+      <%= user.full_name %>
+      <%= user.email %><br>
       <%# 一人のユーザーに対して、所属するチームの名前を繰り返す処理 %>
       <% user.teams.each do |team| %>
-        <%= team.name %>
+        <%= team.name %><br>
       <% end %>
       </li>
     <% end %>

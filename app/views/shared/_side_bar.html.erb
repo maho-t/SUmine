@@ -110,7 +110,7 @@
               </a>
             </li>
             <li>
-              <a href="#" class="nav-link link-dark">
+              <a href="/manuals" class="nav-link link-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" class="bi me-2" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check-fill" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3Zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3ZM4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5v-1Zm6.854 7.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z"/>
                 </svg>
@@ -144,7 +144,7 @@
           <div class="dropdown">
             <a href="/" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false" >
               <img src="/assets/user-photo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-              <strong><%= "#{current_user.last_name} #{current_user.first_name}"%></strong>
+              <strong><%= current_user.full_name %></strong>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Profile', user_path(current_user.id), method: :get, class: "dropdown-item" %></li>
                 <li><%= link_to 'Log out', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>

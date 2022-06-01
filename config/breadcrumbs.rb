@@ -27,6 +27,26 @@ crumb :team_new do
   parent :root
 end
 
+crumb :manual_index do |manual|
+  link "マニュアル一覧", manuals_index_path
+  parent :root
+end
+
+crumb :manual_show do |manual|
+  link "#{manual.title}", manual_path(manual)
+  parent :manual_index, manual
+end
+
+crumb :manual_new do |manual|
+  link "新規マニュアル作成", new_manual_path
+  parent :manual_index
+end
+
+crumb :manual_edit do |manual|
+  link "#{manual.title}の編集", edit_manual_path(manual)
+  parent :manual_show, manual
+end
+
 
 # crumb :projects do
 #   link "Projects", projects_path
