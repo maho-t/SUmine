@@ -3,7 +3,7 @@ crumb :root do
 end
 
 crumb :users do
-  link "ユーザー一覧", users_index_path
+  link "ユーザー一覧", users_path
   parent :root
 end
 
@@ -28,7 +28,7 @@ crumb :team_new do
 end
 
 crumb :manual_index do |manual|
-  link "マニュアル一覧", manuals_index_path
+  link "マニュアル一覧", manuals_path
   parent :root
 end
 
