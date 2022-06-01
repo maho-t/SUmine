@@ -13,5 +13,9 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :askings, only: [:index]
+  resources :askings do
+    member do
+      get 'choose'
+    end
+  end
 end
