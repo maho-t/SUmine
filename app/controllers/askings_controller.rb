@@ -45,6 +45,16 @@ class AskingsController < ApplicationController
     end
   end
 
+  def destroy
+    team = Team.find(params[:team_id])
+    asking = team.askings.find(params[:id])
+    unless current_user.id == asking.user_id
+      redirect_to action: :show
+    end
+    asking.destroy
+    return redirect_to action: :choose
+  end
+
   private
 
   def asking_params

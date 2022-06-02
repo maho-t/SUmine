@@ -12,3 +12,4 @@
 <%= @asking.user.full_name %>
 <br>
 <%= link_to '問い合わせを編集する', edit_team_asking_path(@team.id, @asking.id)%>
+<%= link_to '問い合わせを削除する', team_asking_path(@team.id, @asking.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
