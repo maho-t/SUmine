@@ -1,22 +1,20 @@
 class AskingsController < ApplicationController
   before_action :set_asking, only: [:show, :edit, :update]
+  before_action :find_team, only: [:choose, :new, :create]
 
   def index
     @teams = Team.all
   end
 
   def choose
-    @team = Team.find(params[:team_id])
     @askings = @team.askings.all
   end
 
   def new
-    @team = Team.find(params[:team_id])
     @asking = Asking.new
   end
 
   def create
-    @team = Team.find(params[:team_id])
     @asking = @team.askings.new(asking_params)
     if @asking.save
       redirect_to choose_team_askings_path(@team)
@@ -61,5 +59,9 @@ class AskingsController < ApplicationController
   def set_asking
     @team = Team.find(params[:team_id])
     @asking = @team.askings.find(params[:id])
+  end
+
+  def find_team
+    @team = Team.find(params[:team_id])
   end
 end
