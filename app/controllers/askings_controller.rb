@@ -1,4 +1,6 @@
 class AskingsController < ApplicationController
+  before_action :set_asking, only: [:show, :edit, :update]
+
   def index
     @teams = Team.all
   end
@@ -23,21 +25,15 @@ class AskingsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:team_id])
-    @asking = @team.askings.find(params[:id])
   end
 
   def edit
-    @team = Team.find(params[:team_id])
-    @asking = @team.askings.find(params[:id])
     unless current_user.id == @asking.user_id
       redirect_to action: :show
     end
   end
 
   def update
-    @team = Team.find(params[:team_id])
-    @asking = @team.askings.find(params[:id])
     if @asking.update(asking_params)
       redirect_to action: :show
     else
@@ -59,5 +55,10 @@ class AskingsController < ApplicationController
 
   def asking_params
     params.require(:asking).permit(:question, :answer).merge(user_id: current_user.id)
+  end
+
+  def set_asking
+    @team = Team.find(params[:team_id])
+    @asking = @team.askings.find(params[:id])
   end
 end
