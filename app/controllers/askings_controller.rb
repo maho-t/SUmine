@@ -11,6 +11,7 @@ class AskingsController < ApplicationController
   end
 
   def new
+    @team = Team.find(params[:team_id])
     @asking = Asking.new
   end
 
