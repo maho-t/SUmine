@@ -1,0 +1,12 @@
+<h3>検索機能箇所</h3>
+<%= search_form_for @team.askings.ransack(params[:q]), url: search_team_askings_path do |f| %>
+  <div class="search-field">
+    <% f.label :question_or_answer_cont, '検索キーワード' %>
+    <br>
+    <%= f.text_field :question_or_answer_cont, placeholder: '検索キーワード' %>
+  </div>
+  <%= f.label :submit, class: "search-button" do %>
+    <input type= "submit" value="検索" class="send">
+    <%= f.submit :submit, id: "q_submit", style: "display: none;" %>
+  <% end %>
+<% end %>

@@ -1,0 +1,20 @@
+<h1>問い合わせ詳細画面</h1>
+<% breadcrumb :asking_show, @team, @asking %>
+<%= render 'search', url: search_team_askings_path, q: @q %>
+
+<div class="asking-create">
+  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+</div>
+
+<P>質問内容</p>
+<%= @asking.question %>
+<p>回答内容</p>
+<%= @asking.answer %>
+<p>投稿者</p>
+<%= @asking.user.full_name %>
+<br>
+<p>投稿日</p>
+<%= @asking.created_at.strftime('%Y/%m/%d') %>
+<br>
+<%= link_to '問い合わせを編集する', edit_team_asking_path(@team.id, @asking.id)%>
+<%= link_to '問い合わせを削除する', team_asking_path(@team.id, @asking.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>

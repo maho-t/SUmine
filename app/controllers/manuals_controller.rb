@@ -30,6 +30,8 @@ class ManualsController < ApplicationController
   def update
     if @manual.update(manual_params)
       redirect_to action: :show
+    else
+      render :edit
     end
   end
 

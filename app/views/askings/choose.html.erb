@@ -1,0 +1,14 @@
+<h1>選んだチームの問い合わせ画面</h1>
+<% breadcrumb :asking_choose, @team %>
+<%= render 'search', url: search_team_askings_path, q: @q %>
+
+<%= @team.name %>の問い合わせ一覧
+
+<div class="asking-create">
+  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+</div>
+
+<h3>投稿された問い合わせ一覧</h3>
+<% @askings.each do |asking| %>
+  <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
+<% end %>
