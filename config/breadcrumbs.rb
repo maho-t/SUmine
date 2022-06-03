@@ -50,6 +50,11 @@ crumb :manual_edit do |manual|
   parent :manual_show, manual
 end
 
+crumb :manual_search do |manual|
+  link "検索結果", search_manuals_path
+  parent :manual_index
+end
+
 # 問い合わせ
 crumb :asking_index do |asking|
   link "所属チーム一覧", team_askings_path
@@ -74,6 +79,11 @@ end
 crumb :asking_edit do |team, asking|
   link "問い合わせ編集", edit_team_asking_path(team.id, asking.id)
   parent :asking_show, team, asking
+end
+
+crumb :asking_search do |team|
+  link "検索結果", search_team_askings_path(team)
+  parent :asking_choose, team
 end
 
 # crumb :projects do
