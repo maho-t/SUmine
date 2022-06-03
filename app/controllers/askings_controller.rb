@@ -7,7 +7,7 @@ class AskingsController < ApplicationController
   end
 
   def choose
-    @askings = @team.askings.all
+    @askings = @team.askings.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -57,7 +57,7 @@ class AskingsController < ApplicationController
       params[:q][:question_or_answer_cont_any] = squished_keywords.split(" ")
     end
     @q = @team.askings.ransack(params[:q])
-    @askings = @q.result
+    @askings = @q.result.order("created_at DESC")
   end
 
   private
