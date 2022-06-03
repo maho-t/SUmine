@@ -50,6 +50,16 @@ class AskingsController < ApplicationController
     return redirect_to action: :choose
   end
 
+  def search
+    @team = Team.find(params[:team_id])
+    if params[:q]&.dig(:question)
+      squished_keywords = params[:q][:question].squish
+      params[:q][:question_or_answer_cont_any] = squished_keywords.split(" ")
+    end
+    @q = @team.askings.ransack(params[:q])
+    @askings = @q.result
+  end
+
   private
 
   def asking_params

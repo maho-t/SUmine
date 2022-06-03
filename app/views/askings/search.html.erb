@@ -1,0 +1,14 @@
+<h1>検索結果画面</h1>
+<%= render 'search', url: search_team_askings_path %>
+
+<%# 問い合わせ新規作成 %>
+<div class="asking-create">
+  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+</div>
+
+<%= @team.name %>の問い合わせ一覧<br>
+
+<%# 問い合わせ検索結果 %>
+<% @askings.each do |asking| %>
+  <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
+<% end %>

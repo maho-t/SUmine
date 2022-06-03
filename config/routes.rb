@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :askings do
       collection do
         get 'choose'
+        get 'search'
       end
     end
   end

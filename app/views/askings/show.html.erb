@@ -1,5 +1,7 @@
 <h1>問い合わせ詳細画面</h1>
 <% breadcrumb :asking_show, @team, @asking %>
+<%= render 'search', url: search_team_askings_path, q: @q %>
+
 <div class="asking-create">
   <%= link_to "問い合わせを作成する", new_team_asking_path %>
 </div>
