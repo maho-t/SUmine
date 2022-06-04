@@ -2,5 +2,6 @@
   <%= render 'layouts/error_messages', model: form.object %>
   <%= form.text_area :question, placeholder: "質問" %>
   <%= form.text_area :answer, placeholder: "回答" %>
+  <%= form.text_field :tag_list, placeholder: "タグ名" %>
   <%= form.submit "SEND" %>
 <% end %>

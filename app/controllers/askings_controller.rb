@@ -8,6 +8,10 @@ class AskingsController < ApplicationController
 
   def choose
     @askings = @team.askings.includes(:user).order("created_at DESC")
+    @tags = @team.askings.tag_counts_on(:tags).most_used(20)
+    if @tag = params[:tag]
+      @asking = @team.askings.tagged_with(params[:tag])
+    end
   end
 
   def new
@@ -24,6 +28,7 @@ class AskingsController < ApplicationController
   end
 
   def show
+    @tags = @team.askings.tag_counts_on(:tags)
   end
 
   def edit
@@ -63,7 +68,7 @@ class AskingsController < ApplicationController
   private
 
   def asking_params
-    params.require(:asking).permit(:question, :answer).merge(user_id: current_user.id)
+    params.require(:asking).permit(:question, :answer, :tag_list).merge(user_id: current_user.id)
   end
 
   def set_asking

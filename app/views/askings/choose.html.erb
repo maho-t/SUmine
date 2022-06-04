@@ -4,6 +4,22 @@
 
 <%= @team.name %>の問い合わせ一覧
 
+<%# タグ機能 %>
+<% if @tags.present? %>
+  <% @tags.each do |tag| %>
+    <p><%= link_to "#{tag.name}(#{tag.taggings_count})", choose_team_askings_path(tag: tag.name) %></p>
+  <% end %>
+<% else %>
+    <P>登録されているタグはありません</p>
+<% end %>
+
+<% if @asking.present? %>
+  <p><%= "#{@tag}の問い合わせ一覧" %></p>
+  <% @asking.each do |asking| %>
+    <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
+  <% end %>
+<% end %>
+
 <div class="asking-create">
   <%= link_to "問い合わせを作成する", new_team_asking_path %>
 </div>

@@ -6,14 +6,20 @@
   <%= link_to "問い合わせを作成する", new_team_asking_path %>
 </div>
 
-<P>質問内容</p>
+<p>タグ↓</p>
+<% if @tags.present? %>
+  <% @tags.each do |tag| %>
+    <p><%= "#{tag.name}" %></p>
+  <% end %>
+<% end %>
+<P>質問内容↓</p>
 <%= @asking.question %>
-<p>回答内容</p>
+<p>回答内容↓</p>
 <%= @asking.answer %>
-<p>投稿者</p>
+<p>投稿者↓</p>
 <%= @asking.user.full_name %>
 <br>
-<p>投稿日</p>
+<p>投稿日↓</p>
 <%= @asking.created_at.strftime('%Y/%m/%d') %>
 <br>
 <%= link_to '問い合わせを編集する', edit_team_asking_path(@team.id, @asking.id)%>
