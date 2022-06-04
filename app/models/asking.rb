@@ -5,4 +5,7 @@ class Asking < ApplicationRecord
 
   belongs_to :user
   belongs_to :team
+
+  acts_as_taggable
+  acts_as_taggable_on :skills, :interests
 end
