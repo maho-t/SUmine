@@ -8,4 +8,5 @@ class Team < ApplicationRecord
   has_many :users, through: :team_users
   has_many :manuals
   has_many :askings
+  has_many :comments
 end

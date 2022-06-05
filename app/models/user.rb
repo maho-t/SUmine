@@ -17,6 +17,7 @@ class User < ApplicationRecord
   has_many :teams, through: :team_users
   has_many :manuals
   has_many :askings
+  has_many :comments
 
   def full_name
     self.last_name + " " + self.first_name
