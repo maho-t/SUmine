@@ -1,5 +1,5 @@
 class ManualsController < ApplicationController
-  before_action :set_manual, only: [:show, :edit]
+  before_action :set_manual, only: [:show, :edit, :update]
 
   def index
     @manuals = Manual.select("title")
