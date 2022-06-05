@@ -22,7 +22,6 @@ class CommentsController < ApplicationController
     comment = Comment.find_by(params[:id])
     comment.destroy
     return redirect_to "/manuals/#{manual.id}"
-    # return redirect_to controller: :manuals, action: :show
   end
   
   private
