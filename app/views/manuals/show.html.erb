@@ -14,3 +14,28 @@
 <%= @manual.created_at.strftime('%Y/%m/%d') %>
 <h4>マニュアル作成者</h4>
 <%= @manual.user.full_name %>
+
+<%# 備考機能 %>
+<div class="container">
+  <% if current_user.id == @manual.user_id %>
+    <%= form_with(model: [@manual, @comment], local: true) do |form| %>
+      <%= form.text_area :comment, placeholder: "備考を記入する", rows: "2" %>
+      <%= form.submit "SEND" %>
+    <% end %>
+  <% end %>
+  <div class="comments">
+    <h4>＜備考欄＞</h4>
+    <% @comments.each do |comment| %>
+      <p>
+        <%= comment.comment %>
+        <br>
+        <strong>記入者：<%= comment.user.full_name %></strong>
+      </p>
+      <% if current_user.id == comment.user_id%>
+        備考の
+        <%= link_to "編集", edit_manual_comment_path(@manual) %>
+        <%= link_to "削除", manual_comment_path(@manual, comment), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

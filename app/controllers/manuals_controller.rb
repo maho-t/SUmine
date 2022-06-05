@@ -19,6 +19,8 @@ class ManualsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @manual.comments.includes(:user)
   end
 
   def edit

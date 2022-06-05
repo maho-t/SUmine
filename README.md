@@ -35,7 +35,6 @@
 - has_many :manuals
 - has_many :askings
 - has_many :schedules
-- has_many :comments
 
 
 ## team_users テーブル
@@ -108,5 +107,4 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :team
 - belongs_to :manual
