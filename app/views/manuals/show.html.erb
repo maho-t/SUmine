@@ -33,7 +33,7 @@
       </p>
       <% if current_user.id == comment.user_id%>
         備考の
-        <%= link_to "編集", edit_manual_comment_path(@manual) %>
+        <%= link_to "編集", edit_manual_comment_path(@manual, comment) %>
         <%= link_to "削除", manual_comment_path(@manual, comment), method: :delete, data: { confirm: "本当に削除しますか？" } %>
       <% end %>
     <% end %>
