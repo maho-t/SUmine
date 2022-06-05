@@ -11,17 +11,18 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to "/manuals/#{comment.manual.id}"
+      redirect_to "/manuals/#{@comment.manual.id}"
     else
       render action: :edit
     end
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
-    if @comment.destroy
-      redirect_to "/manuals/#{comment.manual.id}"
-    end
+    manual = Manual.find(params[:manual_id])
+    comment = Comment.find_by(params[:id])
+    comment.destroy
+    return redirect_to "/manuals/#{manual.id}"
+    # return redirect_to controller: :manuals, action: :show
   end
   
   private
