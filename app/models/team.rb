@@ -6,7 +6,6 @@ class Team < ApplicationRecord
 
   has_many :team_users, dependent: :destroy
   has_many :users, through: :team_users
-  has_many :manuals
-  has_many :askings
-  has_many :comments
+  has_many :manuals, dependent: :destroy
+  has_many :askings, dependent: :destroy
 end

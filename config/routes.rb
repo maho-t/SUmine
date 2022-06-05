@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:index, :show, :destroy]
   resources :manuals do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :edit, :update, :destroy]
     collection do
       get 'search'
     end
