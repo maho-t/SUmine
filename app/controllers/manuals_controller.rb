@@ -57,7 +57,7 @@ class ManualsController < ApplicationController
 
   private
   def manual_params
-    params.require(:manual).permit(:title, :manual_text, :team_id).merge(user_id: current_user.id)
+    params.require(:manual).permit(:title, :manual_text, :team_id, :shiryo).merge(user_id: current_user.id)
   end
 
   def set_manual
