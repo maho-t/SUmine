@@ -10,6 +10,10 @@
 <%= @manual.title %>
 <h4>マニュアル詳細</h4>
 <%= @manual.manual_text %>
+<% if @manual.shiryo? %>
+  <h4>添付資料</h4>
+  <%= image_tag @manual.shiryo.url %>
+<% end %>
 <h4>マニュアル作成日</h4>
 <%= @manual.created_at.strftime('%Y/%m/%d') %>
 <h4>マニュアル作成者</h4>
