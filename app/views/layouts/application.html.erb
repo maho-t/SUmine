@@ -17,8 +17,8 @@
   <body>
     <% if user_signed_in? %>
       <%= render "shared/side_bar" %>
+      <div class="main-place">
     <% end %>
-    <div class="main-place">
       <%= breadcrumbs separator: " &rsaquo; " %>
       <%= yield %>
     </div>
