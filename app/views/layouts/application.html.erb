@@ -18,10 +18,12 @@
     <% if user_signed_in? %>
       <%= render "shared/side_bar" %>
       <div class="main-place">
+        <%= breadcrumbs separator: " &rsaquo; " %>
     <% end %>
-      <%= breadcrumbs separator: " &rsaquo; " %>
-      <%= yield %>
-    </div>
-    <%# <%= render "shared/footer"%>
+        <%= yield %>
+      </div>
+      <% if user_signed_in? %>
+        <%= render "shared/footer" %>
+      <% end %>
   </body>
 </html>
