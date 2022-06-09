@@ -9,9 +9,15 @@ footer {
   right: 0px;
 }
 
+.contents {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
   max-width: 680px;
   padding: 0 15px;
+  margin-bottom: auto;
   display: flex;
   justify-content: flex-end;
 }
@@ -20,4 +26,16 @@ footer {
   text-decoration: none!important;
   color: pink;
   margin-left: 30px;
+}
+
+.foot-link:hover {
+  color: #801F4F;
+}
+
+.copy-right {
+  color: lightgrey;
+  display: flex;
+  justify-content: left;
+  white-space: nowrap;
+  margin-left: 20px;
 }
