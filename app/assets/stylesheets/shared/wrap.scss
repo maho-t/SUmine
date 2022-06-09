@@ -15,11 +15,17 @@ main > * {
   min-height: -webkit-fill-available;
 }
 
+a {
+  text-decoration: none!important;
+}
+
 .main-place {
   height: 100vh;
   width: calc(100vw - 230px);
   background-color: #CFE1FF;
   float: right;
+  overflow: scroll;
+  padding-bottom: 100px;
 }
 
 .bi {
@@ -75,7 +81,6 @@ main > * {
 .btn-toggle-nav a:focus {
   background-color: #d2f4ea;
 }
-
 
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
