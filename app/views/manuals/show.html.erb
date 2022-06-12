@@ -20,7 +20,7 @@
 <%= @manual.user.full_name %>
 
 <%# 備考機能 %>
-<div class="container">
+<div class="comment-cont">
   <% if current_user.id == @manual.user_id %>
     <%= form_with(model: [@manual, @comment], local: true) do |form| %>
       <%= form.text_area :comment, placeholder: "備考を記入する", rows: "2" %>

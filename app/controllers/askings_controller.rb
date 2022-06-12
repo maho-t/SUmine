@@ -7,7 +7,7 @@ class AskingsController < ApplicationController
   end
 
   def choose
-    @askings = @team.askings.includes(:user).order("created_at DESC")
+    @askings = @team.askings.includes(:user).order("created_at DESC").page(params[:page]).per(20)
     @tags = @team.askings.tag_counts_on(:tags).most_used(20)
     if @tag = params[:tag]
       @asking = @team.askings.tagged_with(params[:tag])
@@ -62,7 +62,7 @@ class AskingsController < ApplicationController
       params[:q][:question_or_answer_cont_any] = squished_keywords.split(" ")
     end
     @q = @team.askings.ransack(params[:q])
-    @askings = @q.result.order("created_at DESC")
+    @askings = @q.result.order("created_at DESC").page(params[:page]).per(20)
   end
 
   private
@@ -79,4 +79,5 @@ class AskingsController < ApplicationController
   def find_team
     @team = Team.find(params[:team_id])
   end
+
 end
