@@ -11,7 +11,7 @@
   <%# 所属するチームのマニュアルにとべるリンク %>
 <h2>所属チーム</h2>
 <% current_user.teams.each do |team| %>
-  <%= link_to team.name, "#" %><br>
+  <%= link_to team.name, {controller: "manuals", action: "each", team_id: team.id}, id: team.id %><br>
 <% end %>
 
 <%# 所属するチームごとのマニュアルタイトル一覧 %>

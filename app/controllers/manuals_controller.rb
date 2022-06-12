@@ -2,7 +2,7 @@ class ManualsController < ApplicationController
   before_action :set_manual, only: [:show, :edit, :update]
 
   def index
-    @manuals = Manual.select("title")
+    @manuals = Manual.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -53,6 +53,11 @@ class ManualsController < ApplicationController
     end
     @q = Manual.ransack(params[:q])
     @manuals = @q.result
+  end
+
+  def each
+    @team = Team.find(params[:team_id])
+    @manuals = Manual.includes(:user).order("created_at DESC")
   end
 
   private
