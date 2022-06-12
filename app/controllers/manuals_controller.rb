@@ -57,7 +57,7 @@ class ManualsController < ApplicationController
 
   def each
     @team = Team.find(params[:team_id])
-    @manuals = Manual.includes(:user).order("created_at DESC")
+    @manuals = Manual.includes(:user).order("created_at DESC").page(params[:page]).per(20)
   end
 
   private
