@@ -16,13 +16,3 @@
   作成日：<%= manual.created_at.strftime('%Y/%m/%d') %>
   <br>
 <% end %>
-
-
-<%# 所属するチームごとのマニュアルタイトル一覧 %>
-<h2>所属するチームごとのマニュアルタイトル一覧</h2>
-  <% current_user.teams.each do |team| %>
-    <h3><%= team.name %></h3>
-    <% team.manuals.each do |manual| %>
-      <h4><%= link_to manual.title, manual_path(manual.id), method: :get %></h4>
-    <% end %>
-  <% end %>

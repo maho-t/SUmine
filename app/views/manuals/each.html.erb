@@ -1,0 +1,13 @@
+<h1><%= "#{@team.name}チームのマニュアル一覧" %></h1>
+<% breadcrumb :manual_each, @team %>
+<%= render 'search', url: search_manuals_path, q: @q %>
+
+<%# マニュアルの新規作成 %>
+<div class="manual-create">
+  <%= link_to "マニュアルを作成する", new_manual_path, class: "post" %>
+</div>
+
+<h2>マニュアル一覧</h2>
+<% @team.manuals.each do |manual| %>
+  <h4><%= link_to manual.title, manual_path(manual.id), method: :get %></h4>
+<% end %>
