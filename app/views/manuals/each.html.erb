@@ -1,5 +1,5 @@
 <h1><%= "#{@team.name}チームのマニュアル一覧" %></h1>
-<%# <% breadcrumb :manual_index %> %>
+<% breadcrumb :manual_each, @team %>
 <%= render 'search', url: search_manuals_path, q: @q %>
 
 <%# マニュアルの新規作成 %>

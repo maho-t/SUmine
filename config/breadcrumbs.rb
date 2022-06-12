@@ -55,6 +55,11 @@ crumb :manual_search do |manual|
   parent :manual_index
 end
 
+crumb :manual_each do |team|
+  link "#{team.name}のマニュアル一覧", each_manuals_path(team)
+  parent :manual_index
+end
+
 # 問い合わせ
 crumb :asking_index do |asking|
   link "所属チーム一覧", team_askings_path
