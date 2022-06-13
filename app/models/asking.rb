@@ -8,4 +8,8 @@ class Asking < ApplicationRecord
 
   acts_as_taggable
   acts_as_taggable_on :skills, :interests
+
+  def new_arrival?
+    created_at + 1.week > Date.today
+  end
 end

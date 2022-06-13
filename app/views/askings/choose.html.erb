@@ -26,7 +26,12 @@
 
 <h3>投稿された問い合わせ一覧</h3>
 <% @askings.each do |asking| %>
-  <h1><%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %></h1><br>
+  <div class="news">
+    <div class="newlabel">
+      <%= render 'shared/new_label' if asking.new_arrival? %>
+    </div>
+    <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %>
+  </div>
 <% end %>
 
 <%= paginate @askings %>
