@@ -7,4 +7,8 @@ class Manual < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   mount_uploader :shiryo, ShiryoUploader
+
+  def new_arrival?
+    created_at + 1.week > Date.today
+  end
 end
