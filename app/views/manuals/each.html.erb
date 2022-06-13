@@ -9,5 +9,10 @@
 
 <h2>マニュアル一覧</h2>
 <% @team.manuals.each do |manual| %>
-  <h4><%= link_to manual.title, manual_path(manual.id), method: :get %></h4>
+  <div class="news">
+    <div class="newlabel">
+      <%= render 'shared/new_label' if manual.new_arrival? %>
+    </div>
+    <%= link_to manual.title, manual_path(manual.id), method: :get %>
+  </div>
 <% end %>
