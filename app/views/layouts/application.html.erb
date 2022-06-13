@@ -23,6 +23,11 @@
         <%= yield %>
       </div>
       <% if user_signed_in? %>
+        <span id="back">
+          <a href="">
+            <%= image_tag asset_path('page_top.png'), data: {"turbolinks"=>false}, class: "arrow" %>
+          </a>
+        </span>
         <%= render "shared/footer" %>
       <% end %>
   </body>

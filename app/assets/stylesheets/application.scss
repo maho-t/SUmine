@@ -17,3 +17,14 @@
  * {
    box-sizing: border-box;
  }
+
+ #back {
+  position: fixed;
+  right: 20px;
+  bottom: 50px;
+ }
+
+.arrow {
+  width: 80px;
+  height: 70px;
+}
