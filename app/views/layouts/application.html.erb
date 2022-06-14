@@ -18,7 +18,9 @@
     <% if user_signed_in? %>
       <%= render "shared/side_bar" %>
       <div class="main-place">
-        <%= breadcrumbs separator: " &rsaquo; " %>
+        <div id="breadcrumbs">
+          <%= breadcrumbs separator: " / " %>
+        </div>
     <% end %>
         <%= yield %>
       </div>
