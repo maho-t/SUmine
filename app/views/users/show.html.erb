@@ -1,25 +1,25 @@
 <h2>Profile</h2>
 <% breadcrumb :user_show, @user %>
-<table>
-  <tr>
-    <th>ユーザー名</th>
-    <td><%= @user.full_name %></td>
+<table class="user-show">
+  <tr class="user-detail">
+    <th class="user-about">ユーザー名</th>
+    <td class="user-each"><%= @user.full_name %></td>
   </tr>
-  <tr>
-    <th>メールアドレス</th>
-    <td><%= @user.email %></td>
+  <tr class="user-detail">
+    <th class="user-about">メールアドレス</th>
+    <td class="user-each"><%= @user.email %></td>
   </tr>
-  <tr>
-    <th>所属</th>
-      <td>
+  <tr class="user-detail">
+    <th class="user-about">所属</th>
+      <td class="user-each">
         <% @user.teams.each do |team| %>
           <%= team.name %><br>
         <% end %>
       </td>
   </tr>
-   <tr>
-    <th>利用開始日</th>
-    <td><%= @user.created_at.strftime('%Y年%m月%d日') %></td>
+   <tr class="user-detail">
+    <th class="user-about">利用開始日</th>
+    <td class="user-each"><%= @user.created_at.strftime('%Y年%m月%d日') %></td>
   </tr>
 </table>
 
