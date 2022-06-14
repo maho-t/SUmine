@@ -1,11 +1,9 @@
 /* ユーザー一覧 */
 .user-index {
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 20px 30px;
   padding: 0;
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 900px;
   box-shadow: 0 0 15px -6px #00000073;
 }
 
@@ -29,9 +27,13 @@
 }
 
 .users {
-  text-align: center;
+  text-align: left;
   width: 20%;
   padding: 20px 0;
   background-color: #fff;
   color:#3a3a3a;
+}
+
+.user {
+  padding: 10px;
 }
