@@ -1,12 +1,30 @@
-<h1>ユーザー詳細</h1>
+<h2>Profile</h2>
 <% breadcrumb :user_show, @user %>
-  <%= @user.last_name %>
-  <%= @user.first_name %>
-  <%= @user.email %><br>
-  <% @user.teams.each do |team| %>
-    <%= team.name %><br>
-  <% end %>
+<table class="user-show">
+  <tr class="user-detail">
+    <th class="user-about">ユーザー名</th>
+    <td class="user-each"><%= @user.full_name %></td>
+  </tr>
+  <tr class="user-detail">
+    <th class="user-about">メールアドレス</th>
+    <td class="user-each"><%= @user.email %></td>
+  </tr>
+  <tr class="user-detail">
+    <th class="user-about">所属</th>
+      <td class="user-each">
+        <% @user.teams.each do |team| %>
+          <%= team.name %><br>
+        <% end %>
+      </td>
+  </tr>
+   <tr class="user-detail">
+    <th class="user-about">利用開始日</th>
+    <td class="user-each"><%= @user.created_at.strftime('%Y年%m月%d日') %></td>
+  </tr>
+</table>
 
-<% if @user.id == current_user.id%>
-  <%= link_to "ユーザーを削除する", user_path(@user.id), method: :delete, data: {confirm: "参加しているチームからも削除されますが、本当に削除しますか？"} %>
-<% end %>
+<div class="delete-user">
+  <% if @user.id == current_user.id%>
+    <%= link_to "ユーザーを削除する", user_path(@user.id), method: :delete, data: {confirm: "参加しているチームからも削除されますが、本当に削除しますか？"} %>
+  <% end %>
+</div>

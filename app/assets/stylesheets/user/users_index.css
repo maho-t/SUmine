@@ -1,0 +1,39 @@
+/* ユーザー一覧 */
+.user-index {
+  border-collapse: collapse;
+  margin: 20px 30px;
+  padding: 0;
+  width: 900px;
+  box-shadow: 0 0 15px -6px #00000073;
+}
+
+.users {
+  background-color: #fff;
+}
+
+.user-table,
+.user {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.user-table {
+  width: 20%;
+  padding: 10px 0;
+  font-size: 14px;
+  padding: 15px;
+  background-color: #FFC107;
+  color:#fff;
+}
+
+.users {
+  text-align: left;
+  width: 20%;
+  padding: 20px 0;
+  background-color: #fff;
+  color:#3a3a3a;
+}
+
+.user {
+  padding: 10px;
+}
