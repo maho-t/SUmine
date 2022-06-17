@@ -20,4 +20,5 @@ Rails.application.routes.draw do
       get 'each'
     end
   end
+  resources :mails
 end

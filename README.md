@@ -108,3 +108,18 @@
 
 - belongs_to :user
 - belongs_to :manual
+
+
+## mails テーブル
+
+|Column      |Type       |Options                        |
+|------------|-----------|-------------------------------|
+|title       |string     |null: false                    |
+|text        |text       |null: false                    |
+|team        |references |null: false, foreign_key: true |
+|user        |references |null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :team
