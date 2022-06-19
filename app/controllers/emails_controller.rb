@@ -10,12 +10,12 @@ class EmailsController < ApplicationController
   end
 
   def new
-    @emails = Email.new
+    @email = Email.new
   end
 
   def create
-    email = @team.emails.new(email_params)
-    if email.save
+    @email = @team.emails.new(email_params)
+    if @email.save
       redirect_to choose_team_emails_path(@team)
     else
       render :new

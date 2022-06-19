@@ -1,0 +1,7 @@
+<%= form_with(model: [team, email], url: email.new_record? ? team_emails_path : team_email_path(team.id, email.id), local: true) do |form| %>
+  <%= render 'layouts/error_messages', model: form.object %>
+  <%= form.text_field :title, placeholder: "件名" %>
+  <%= form.text_area :text, placeholder: "詳細(任意)" %>
+  <%= form.file_field :shiryo%>
+  <%= form.submit "SEND" %>
+<% end %>

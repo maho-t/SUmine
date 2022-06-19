@@ -2,15 +2,15 @@
 
 <%= @team.name %>のメール管理一覧
 
-<div class="asking-create">
-  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+<div class="email-create">
+  <%= link_to "メールを保存する", new_team_email_path %>
 </div>
 
 <h3>管理しているメール一覧</h3>
 <% @emails.each do |email| %>
   <div class="news">
     <div class="newlabel">
-      <%= render 'shared/new_label' if email.new_arrival? %>
+      <%= render 'shared/new_label' if email.new_record? %>
     </div>
     <%= link_to email.title, team_email_path(@team.id, email.id), method: :get %>
   </div>
