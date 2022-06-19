@@ -11,7 +11,11 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    resources :emails
+    resources :emails do
+      collection do
+        get 'choose'
+      end
+    end
   end
   resources :users, only: [:index, :show, :destroy]
   resources :manuals do
