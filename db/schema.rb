@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_19_063058) do
+ActiveRecord::Schema.define(version: 2022_06_19_065051) do
 
   create_table "askings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "question", null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_06_19_063058) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "shiryo"
     t.index ["team_id"], name: "index_emails_on_team_id"
     t.index ["user_id"], name: "index_emails_on_user_id"
   end

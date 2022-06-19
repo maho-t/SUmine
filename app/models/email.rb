@@ -4,4 +4,6 @@ class Email < ApplicationRecord
   
   belongs_to :user
   belongs_to :team
+
+  mount_uploader :shiryo, ShiryoUploader
 end
