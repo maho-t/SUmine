@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_06_231250) do
+ActiveRecord::Schema.define(version: 2022_06_19_063058) do
 
   create_table "askings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "question", null: false
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2022_06_06_231250) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["manual_id"], name: "index_comments_on_manual_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "emails", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "text", null: false
+    t.bigint "team_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["team_id"], name: "index_emails_on_team_id"
+    t.index ["user_id"], name: "index_emails_on_user_id"
   end
 
   create_table "manuals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,6 +123,8 @@ ActiveRecord::Schema.define(version: 2022_06_06_231250) do
   add_foreign_key "askings", "users"
   add_foreign_key "comments", "manuals"
   add_foreign_key "comments", "users"
+  add_foreign_key "emails", "teams"
+  add_foreign_key "emails", "users"
   add_foreign_key "manuals", "teams"
   add_foreign_key "manuals", "users"
   add_foreign_key "taggings", "tags"

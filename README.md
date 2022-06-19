@@ -110,7 +110,7 @@
 - belongs_to :manual
 
 
-## mails テーブル
+## emails テーブル
 
 |Column      |Type       |Options                        |
 |------------|-----------|-------------------------------|
