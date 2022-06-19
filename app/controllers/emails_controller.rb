@@ -1,4 +1,5 @@
 class EmailsController < ApplicationController
+  before_action :set_email, only: [:show]
   before_action :find_team, only: [:choose, :new, :create]
 
   def index
@@ -22,10 +23,18 @@ class EmailsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def email_params
     params.require(:email).permit(:title, :text, :shiryo).merge(user_id: current_user.id)
+  end
+
+  def set_email
+    @team = Team.find(params[:team_id])
+    @email = @team.emails.find(params[:id])
   end
   
   def find_team
