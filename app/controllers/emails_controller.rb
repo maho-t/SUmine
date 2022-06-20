@@ -1,5 +1,5 @@
 class EmailsController < ApplicationController
-  before_action :set_email, only: [:show]
+  before_action :set_email, only: [:show, :edit, :update]
   before_action :find_team, only: [:choose, :new, :create]
 
   def index
@@ -24,6 +24,30 @@ class EmailsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+    unless current_user.id == @email.user_id
+      redirect_to action: :show
+    end
+  end
+
+  def update
+    if @email.update(email_params)
+      redirect_to action: :show
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    team = Team.find(params[:team_id])
+    email = team.emails.find(params[:id])
+    unless current_user.id == email.user_id
+      redirect_to action: :show
+    end
+    email.destroy
+    return redirect_to action: :choose
   end
 
   private
