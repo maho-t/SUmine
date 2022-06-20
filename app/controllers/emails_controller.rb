@@ -53,7 +53,7 @@ class EmailsController < ApplicationController
   private
 
   def email_params
-    params.require(:email).permit(:title, :text, :shiryo).merge(user_id: current_user.id)
+    params.require(:email).permit(:title, :text, {images: []}).merge(user_id: current_user.id)
   end
 
   def set_email

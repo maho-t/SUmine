@@ -9,7 +9,9 @@
 <p>詳細</p>
 <%= @email.text %>
 <h4>添付資料</h4>
-<%= link_to '添付資料を開く', @email.shiryo.url, target: :_blank, rel: "noopener noreferrer" %>
+  <% @email.images.each do |image| %>
+  <%= link_to "#{image.filename}を開く", image, target: :_blank, rel: "noopener noreferrer" %>
+  <% end %>
 <p>投稿者</p>
 <%= @email.user.full_name %>
 <br>

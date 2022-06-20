@@ -2,6 +2,6 @@
   <%= render 'layouts/error_messages', model: form.object %>
   <%= form.text_field :title, placeholder: "件名" %>
   <%= form.text_area :text, placeholder: "詳細(任意)" %>
-  <%= form.file_field :shiryo%>
+  <%= form.file_field :images, multiple: true %>
   <%= form.submit "SEND" %>
 <% end %>
