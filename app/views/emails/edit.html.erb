@@ -1,2 +1,3 @@
 <h2>保存したメールの編集画面</h2>
+<% breadcrumb :email_edit, @team, @email %>
 <%= render partial: "form", locals: { team: @team, email: @email }%>
