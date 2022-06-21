@@ -1,5 +1,6 @@
 <h2>選択したチームのメール管理一覧画面</h2>
 <% breadcrumb :email_choose, @team %>
+<%= render 'search', url: search_team_emails_path, q: @q %>
 
 <%= @team.name %>のメール管理一覧
 

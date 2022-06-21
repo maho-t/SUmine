@@ -1,5 +1,7 @@
 <h2>メール詳細画面</h2>
 <% breadcrumb :email_show, @team, @email %>
+<%= render 'search', url: search_team_emails_path, q: @q %>
+
 <div class="email-create">
   <%= link_to "メールを保存する", new_team_email_path %>
 </div>

@@ -1,0 +1,12 @@
+<h2>検索機能</h2>
+<%= search_form_for @team.emails.ransack(params[:q]), url: search_team_emails_path do |f| %>
+  <div class="search-field">
+    <% f.label :title_or_text_cont, '検索キーワード' %>
+    <br>
+    <%= f.text_field :title_or_text_cont, placeholder: '検索キーワード' %>
+  </div>
+  <%= f.label :submit, class: "search-button" do %>
+    <input type= "submit" value="検索" class="send">
+    <%= f.submit :submit, id: "q_submit", style: "display: none;" %>
+  <% end %>
+<% end %>
