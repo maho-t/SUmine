@@ -116,3 +116,8 @@ crumb :email_edit do |team, email|
   link "管理メールの編集", edit_team_email_path(team.id, email.id)
   parent :email_show, team, email
 end
+
+crumb :email_search do |team|
+  link "検索結果", search_team_emails_path(team)
+  parent :email_choose, team
+end

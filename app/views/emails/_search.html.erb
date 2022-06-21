@@ -1,4 +1,4 @@
-<h2>検索機能</h2>
+<h3>検索機能</h3>
 <%= search_form_for @team.emails.ransack(params[:q]), url: search_team_emails_path do |f| %>
   <div class="search-field">
     <% f.label :title_or_text_cont, '検索キーワード' %>
