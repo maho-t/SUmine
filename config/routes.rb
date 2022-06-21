@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :emails do
       collection do
         get 'choose'
+        get 'search'
       end
     end
   end

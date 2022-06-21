@@ -1,6 +1,6 @@
 class EmailsController < ApplicationController
   before_action :set_email, only: [:show, :edit, :update]
-  before_action :find_team, only: [:choose, :new, :create]
+  before_action :find_team, only: [:choose, :new, :create, :search]
 
   def index
     @teams = Team.all
@@ -48,6 +48,15 @@ class EmailsController < ApplicationController
     end
     email.destroy
     return redirect_to action: :choose
+  end
+
+  def search
+    if params[:q]&.dig(:title)
+      squished_keywords = params[:q][:title].squish
+      params[:q][:title_or_text_cont_any] = squished_keywords.split(" ")
+    end
+    @q = @team.emails.ransack(params[:q])
+    @emails = @q.result.order("created_at DESC").page(params[:page]).per(20)
   end
 
   private

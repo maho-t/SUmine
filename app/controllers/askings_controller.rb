@@ -1,6 +1,6 @@
 class AskingsController < ApplicationController
   before_action :set_asking, only: [:show, :edit, :update]
-  before_action :find_team, only: [:choose, :new, :create]
+  before_action :find_team, only: [:choose, :new, :create, :search]
 
   def index
     @teams = Team.all
@@ -56,7 +56,6 @@ class AskingsController < ApplicationController
   end
 
   def search
-    @team = Team.find(params[:team_id])
     if params[:q]&.dig(:question)
       squished_keywords = params[:q][:question].squish
       params[:q][:question_or_answer_cont_any] = squished_keywords.split(" ")
