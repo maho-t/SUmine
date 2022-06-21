@@ -8,4 +8,5 @@ class Team < ApplicationRecord
   has_many :users, through: :team_users
   has_many :manuals, dependent: :destroy
   has_many :askings, dependent: :destroy
+  has_many :emails
 end

@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :manuals
   has_many :askings
   has_many :comments
+  has_many :emails
 
   def full_name
     self.last_name + " " + self.first_name

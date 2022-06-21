@@ -1,0 +1,6 @@
+<h2>メール管理：チーム選択画面</h2>
+<% breadcrumb :email_index %>
+<h4>問い合わせを確認するチームを選ぶ</h4>
+<% current_user.teams.each do |team| %>
+  <%= link_to team.name, choose_team_emails_path(team), method: :get %><br>
+<% end %>

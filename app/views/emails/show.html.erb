@@ -1,0 +1,24 @@
+<h2>メール詳細画面</h2>
+<% breadcrumb :email_show, @team, @email %>
+<%= render 'search', url: search_team_emails_path, q: @q %>
+
+<div class="email-create">
+  <%= link_to "メールを保存する", new_team_email_path %>
+</div>
+
+<P>件名</p>
+<%= @email.title %>
+<p>詳細</p>
+<%= @email.text %>
+<h4>添付資料</h4>
+  <% @email.images.each do |image| %>
+  <%= link_to "#{image.filename}を開く", image, target: :_blank, rel: "noopener noreferrer" %>
+  <% end %>
+<p>投稿者</p>
+<%= @email.user.full_name %>
+<br>
+<p>投稿日</p>
+<%= @email.created_at.strftime('%Y/%m/%d') %>
+<br>
+<%= link_to 'このメールを編集する', edit_team_email_path(@team.id, @email.id) %>
+<%= link_to 'このメールを削除する', team_email_path(@team.id, @email.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>

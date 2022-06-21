@@ -91,27 +91,33 @@ crumb :asking_search do |team|
   parent :asking_choose, team
 end
 
-# crumb :projects do
-#   link "Projects", projects_path
-# end
+# メール
+crumb :email_index do |email|
+  link "所属チーム一覧", team_emails_path
+  parent :root
+end
 
-# crumb :project do |project|
-#   link project.name, project_path(project)
-#   parent :projects
-# end
+crumb :email_choose do |team|
+  link "#{team.name}のメール管理一覧", choose_team_emails_path(team)
+  parent :email_index, team
+end
 
-# crumb :project_issues do |project|
-#   link "Issues", project_issues_path(project)
-#   parent :project, project
-# end
+crumb :email_show do |team, email|
+  link "保存メール", team_email_path(team.id, email.id)
+  parent :email_choose, team, email
+end
 
-# crumb :issue do |issue|
-#   link issue.title, issue_path(issue)
-#   parent :project_issues, issue.project
-# end
+crumb :email_new do |team|
+  link "メールの新規保存", new_team_email_path(team)
+  parent :email_choose, team
+end
 
-# If you want to split your breadcrumbs configuration over multiple files, you
-# can create a folder named `config/breadcrumbs` and put your configuration
-# files there. All *.rb files (e.g. `frontend.rb` or `products.rb`) in that
-# folder are loaded and reloaded automatically when you change them, just like
-# this file (`config/breadcrumbs.rb`).
+crumb :email_edit do |team, email|
+  link "管理メールの編集", edit_team_email_path(team.id, email.id)
+  parent :email_show, team, email
+end
+
+crumb :email_search do |team|
+  link "検索結果", search_team_emails_path(team)
+  parent :email_choose, team
+end

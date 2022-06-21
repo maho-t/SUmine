@@ -1,0 +1,14 @@
+<h2>検索結果画面</h2>
+<% breadcrumb :email_search, @team, @email %>
+<%= render 'search', url: search_team_emails_path %>
+
+<div class="email-create">
+  <%= link_to "メールを保存する", new_team_email_path %>
+</div>
+
+<%= @team.name %>の管理メール一覧<br>
+
+<%# 問い合わせ検索結果 %>
+<% @emails.each do |email| %>
+  <%= link_to email.title, team_email_path(@team.id, email.id), method: :get %><br>
+<% end %>
