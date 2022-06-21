@@ -4,6 +4,8 @@
     <% f.label :title_or_text_cont, '検索キーワード' %>
     <br>
     <%= f.text_field :title_or_text_cont, placeholder: '検索キーワード' %>
+    <%= f.date_field :created_at_gteq, include_blank: true, class: 'form-control' %> 〜 
+    <%= f.date_field :created_at_lteq, include_blank: true, class: 'form-control' %>
   </div>
   <%= f.label :submit, class: "search-button" do %>
     <input type= "submit" value="検索" class="send">
