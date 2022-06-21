@@ -3,5 +3,7 @@
   <%= form.text_field :title, placeholder: "件名" %>
   <%= form.text_area :text, placeholder: "詳細(任意)" %>
   <%= form.file_field :images, multiple: true %>
+  <%= form.label :created_at, '登録日' %>
+  <%= form.date_field :created_at, class: 'form-control' %>
   <%= form.submit "SEND" %>
 <% end %>
