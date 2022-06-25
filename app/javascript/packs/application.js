@@ -7,8 +7,6 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require("../side_bar")
-require("../user_add")
 require("../application")
 import "bootstrap"
 import "../stylesheets/application"
