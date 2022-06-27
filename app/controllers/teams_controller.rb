@@ -10,8 +10,8 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @team = Team.new(team_params)
-    if @team.save
+    team = Team.new(team_params)
+    if team.save
       redirect_to action: :index
     else
       render :new
@@ -45,11 +45,10 @@ class TeamsController < ApplicationController
   private
   
   def team_params
-    params.require(:team).permit(:name, :prof, :email, user_ids: [])
+    params.require(:team).permit(:name, :prof, :email, { user_ids: [] })
   end
 
   def set_team
     @team = Team.find(params[:id])
   end
-
 end

@@ -1,11 +1,16 @@
-<h1>チームトップ画面</h1>
+<h2>グループ一覧</h2>
 <% breadcrumb :root %>
 <div class="team-create">
-  <%= link_to "チームを追加する", new_team_path, class: "post" %>
+  <%= link_to "新規グループの追加", new_team_path, class: "btn btn-outline-danger" %>
 </div>
 <div class="team-list">
-<ul>
-  <% @teams.each do |team| %>
-    <li><%= link_to team.name, team_path(team.id) %></li>
-  <% end %>
-</ul>
+  <p class="note-text">※ 既存のグループに参加するには、グループメンバーから追加をしてもらってください。</p>
+  <ul class="list-group">
+    <% @teams.each do |team| %>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <%= link_to team.name, team_path(team.id), class: "link" %>
+        <span class="badge bg-secondary rounded-pill"><%= team.users.count%></span>
+      </li>
+    <% end %>
+  </ul>
+</div>

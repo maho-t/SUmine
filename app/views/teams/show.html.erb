@@ -1,25 +1,54 @@
-<h1>チーム詳細画面</h1>
-<% breadcrumb :team_show, @team %>
-<div class="team-detail">
-  <h4>チーム名</h4>
-  <%= @team.name %>
-  <h4>チーム担当教授</h4>
-  <%= @team.prof %>
-  <h4>チームメーリス</h4>
-  <%= @team.email %>
-  <h4>登録メンバー</h4>
-  <% @team.users.each do |users| %>
-    <%= users.last_name %>
-    <%= users.first_name %>
-  <% end %>
+<div class="dtl">
+  <div class="team-dtl">
+    <%= @team.name %>
+  </div>
+
+  <div class="team-edit">
+    <% if @team.user_ids.include?(current_user.id) %>
+      <%= link_to "編集", edit_team_path(@team.id), method: :get, class: "link" %><span class="sepa"> |</span>
+      <%= link_to "削除", team_path(@team.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
+    <% end %>
+  </div>
+
+  <% breadcrumb :team_show, @team %>
+  <div class="content">
+    <div class="team-detail">
+      <div class="team-cont">担当教授</div>
+      <div class="tm"><%= @team.prof %></div>
+    </div>
+    <div class="team-detail">
+      <div class="team-cont">メールアドレス</div>
+      <div class="tm">
+        <% if @team.email.empty? %>
+          <p>メーリングリストは登録されていません。</p>
+        <% else %>
+          <%= @team.email %>
+        <% end %>
+      </div>
+    </div>
+    <div class="team-detail">
+      <div class="team-cont">登録メンバー</div>
+      <div class="tm">
+        <% @team.users.each do |users| %>
+          <%= users.full_name %><br>
+        <% end %>
+      </div>
+    </div>
+    <div class="team-detail">
+      <div class="team-cont">作成日</div>
+      <div class="tm"><%= @team.created_at.strftime('%Y年%m月%d日') %></div>
+    </div>
+    <div class="team-detail">
+      <div class="team-cont">一覧リンク</div>
+      <div class="tm">
+        <%= link_to "#{@team.name}のマニュアル", {controller: "manuals", action: "each", team_id: @team.id}, id: @team.id, class: "link" %>
+        <br>
+        <%= link_to "#{@team.name}の問い合わせ", choose_team_askings_path(@team), class: "link" %>
+        <br>
+        <%= link_to "#{@team.name}のメール管理", choose_team_emails_path(@team), class: "link" %>
+      </div>
+    </div>
+  </div>
+
+  
 </div>
-<% if @team.user_ids.include?(current_user.id) %>
-  <%= link_to "編集する", edit_team_path(@team.id), method: :get %>
-  <%= link_to "削除する", team_path(@team.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-<% end %>
-<br>
-<%# マニュアルへのリンク %>
-<%= link_to "#{@team.name}のマニュアル", "#" %>
-<%# 問い合わせへのリンク %>
-<br>
-<%= link_to "#{@team.name}の問い合わせ", "#" %>
