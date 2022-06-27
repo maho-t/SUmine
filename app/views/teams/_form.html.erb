@@ -1,23 +1,41 @@
 <% unless local_assigns[:edit_flag].present? %>  
   <p>新しく作成するグループの情報を登録してください</p>
 <% end %>
-<%= form_with(model: @team, team_id: team.id, local: true) do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
-  <div class="group-item">
-    <label class="label" for="name" name="name">名前</label>
-    <%= form.text_field :name, placeholder: "チーム名" %>
-  </div>
-  <div class="group-item">
-    <label class="label" for="prof" name="prof">教授</label>
-    <%= form.text_field :prof, placeholder: "教授名" %>
-  </div>
-  <div class="group-item">
-    <label class="label" for="email" name="email">メーリングリスト</label>
-    <%= form.text_field :email, placeholder: "メーリングリスト" %>
-  </div>
-  <div class="group-item">
-    <%= form.label :user, "メンバー"%>
-    <%= form.collection_check_boxes :user_ids, User.all, :id, :full_name, include_hidden: false %>
-  </div>
-  <%= form.submit "確定する" %>
-<% end %>
+<div class="team-create-form">
+  <%= form_with(model: @team, team_id: team.id, local: true) do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
+    <div class="group-item">
+      <label class="label" for="name" name="name">名前</label>
+      <span class="item-form">
+        <%= form.text_field :name, placeholder: "チーム名" %>
+      </span>
+    </div>
+    <div class="group-item">
+      <label class="label" for="prof" name="prof">教授</label>
+      <span class="item-form">
+        <%= form.text_field :prof, placeholder: "教授名" %>
+      </span>
+    </div>
+    <div class="group-item">
+      <label class="label" for="email" name="email">メーリングリスト</label>
+      <span class="item-form">
+        <%= form.text_field :email, placeholder: "メーリングリスト" %>
+      </span>
+    </div>
+    <div class="group-item">
+      <%= form.label :user, "メンバー"%><br>
+      <span class="item-form">
+        <%= form.collection_check_boxes(:user_ids, User.where.not(id: current_user.id), :id, :full_name, include_hidden: false) do |user|  %>
+          <ul>
+            <li>
+              <%= user.check_box %>
+              <%= user.text %>
+            </li>
+          </ul>
+        <% end %>
+      </span>
+      <input name="team[user_ids][]" type="hidden" value=<%= current_user.id%>>
+    </div>
+    <%= form.submit "確定する", class: "btn btn-primary team-btn" %>
+  <% end %>
+</div>

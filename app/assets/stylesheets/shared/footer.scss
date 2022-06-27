@@ -4,7 +4,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: calc(100vw - 230px);
-  background-color: #06798F;
+  background-color: rosybrown;
   position: fixed;
   right: 0px;
 }
@@ -24,7 +24,7 @@ footer {
 
 .foot-link {
   text-decoration: none!important;
-  color: pink;
+  color: tan;
   margin-left: 30px;
 }
 
@@ -33,7 +33,7 @@ footer {
 }
 
 .copy-right {
-  color: lightgrey;
+  color: slategray;
   display: flex;
   justify-content: left;
   white-space: nowrap;
