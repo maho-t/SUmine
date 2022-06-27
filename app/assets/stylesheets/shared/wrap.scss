@@ -84,3 +84,19 @@ a {
 
 .fw-semibold { font-weight: 600; }
 .lh-tight { line-height: 1.25; }
+
+h2 {
+  width: 100vw;
+  padding: 1rem 1rem;
+  border-top: 6px double #000;
+  border-bottom: 6px double #000;
+  margin: 10px;
+}
+
+.link {
+  color: cadetblue;
+}
+
+.link:hover {
+  color: midnightblue;
+}
