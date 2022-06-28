@@ -1,3 +1,32 @@
-// Place all the styles related to the manuals controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.manual {
+  margin-left: 20px;
+}
+
+.manual-create {
+ margin: 20px 0 20px 0; 
+}
+
+.manual-team {
+  width: 250px;
+  border-bottom: double 5px rosybrown;
+  padding-bottom: 5px;
+  margin: 10px;
+}
+
+.manual-team-each {
+  margin: 5px 0 30px 20px;
+}
+
+.migi {
+  margin-right: 10px;
+  font-size: 20px;
+  color: burlywood;
+}
+
+.panel-title {
+  margin: 5px 0 0 20px;
+}
+
+.panel-body {
+  margin: 5px 0 5px 15px;
+}
