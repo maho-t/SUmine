@@ -36,14 +36,38 @@
   width: calc(100% - 300px);
 }
 
+// 検索
 .search-body {
-  height: 250px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   margin-right: 50px;
-  background-color: #fef4f4;
-  border-radius: 30px;
+  background-color: white;
+  border-radius: 10px;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   border: solid 1px rosybrown;
+}
+
+// 新規作成
+.manual-form {
+  width: 800px;
+  height: 80%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px 0 0 20px;
+}
+
+// フォーム
+.manual-create-form {
+  display: flex;
+}
+
+.manual-field {
+  margin: 20px 0 0 20px;
+}
+
+.manual-field-btn {
+  width: 60px;
+  margin: 30px auto;
 }

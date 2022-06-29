@@ -9,7 +9,7 @@
 <h4>マニュアルタイトル</h4>
 <%= @manual.title %>
 <h4>マニュアル詳細</h4>
-<%= @manual.manual_text %>
+<%= simple_format(@manual.manual_text) %>
 <% if @manual.shiryo? %>
   <h4>添付資料</h4>
   <%= link_to '添付資料を開く', @manual.shiryo.url, target: :_blank, rel: "noopener noreferrer" %>

@@ -1,7 +1,9 @@
-<div class="manual-content">
-  <div class="manual-container">
-    <h1>マニュアル新規作成画面</h1>
-    <% breadcrumb :manual_new %>
+<div class="manual-container">
+  <div class="manual-new">
+    <h2>マニュアル新規作成</h2>
+  </div>
+  <% breadcrumb :manual_new %>
+  <div class="manual-form">
     <%= render partial: "form", locals: {manual: @manual} %>
   </div>
 </div>
