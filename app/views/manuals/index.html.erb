@@ -1,24 +1,22 @@
 <h2>マニュアル</h2>
 <% breadcrumb :manual_index %>
 
+<%# マニュアルの新規作成 %>
+<div class="manual-create">
+  <%= link_to "マニュアルを作成する", new_manual_path, class: "btn btn-outline-danger" %>
+</div>
+
 <div class="manual">
-  <%# マニュアルの新規作成 %>
-  <div class="manual-create">
-    <%= link_to "マニュアルを作成する", new_manual_path, class: "btn btn-outline-danger" %>
-  </div>
+  <%# 各チームのマニュアルへのリンク %>
+  <div class="manual-body">
+    <div class="manual-team">所属グループを選ぶ</div>
+    <div class="manual-team-each">
+      <% current_user.teams.each do |team| %>
+        <span class="migi">▶︎</span> <%= link_to team.name, {controller: "manuals", action: "each", team_id: team.id}, id: team.id, class: "link" %><br>
+      <% end %>
+    </div>
 
-  <%# 検索：右側に表示させる %>
-  <%# <%= render 'search', url: search_manuals_path, q: @q %> %>
-
-  <%# 所属するチームのマニュアルにとべるリンク %>
-  <div class="manual-team">所属グループを選ぶ</div>
-  <div class="manual-team-each">
-    <% current_user.teams.each do |team| %>
-      <span class="migi">▶︎</span> <%= link_to team.name, {controller: "manuals", action: "each", team_id: team.id}, id: team.id, class: "link" %><br>
-    <% end %>
-  </div>
-
-  <%# 所属チームごとのマニュアルタイトル一覧：アコーディオンにする %>
+    <%# 所属チームごとのマニュアルタイトル一覧 %>
     <div class="manual-team">所属グループのマニュアル一覧</div>
     <div class="panel-group" id="accordion">
       <% current_user.teams.each do |team| %>
@@ -45,4 +43,11 @@
         </div>
       <% end %>
     </div>
+  </div>
+
+  <%# 検索：右側に表示させる %>
+  <div class="search-body">
+    <%= render 'search', url: search_manuals_path, q: @q %>
+  </div>
+
 </div>

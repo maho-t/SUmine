@@ -1,9 +1,10 @@
-.manual {
-  margin-left: 20px;
-}
-
 .manual-create {
- margin: 20px 0 20px 0; 
+  margin: 20px 0 20px 20px; 
+ }
+
+ .manual {
+  margin-left: 20px;
+  display: flex;
 }
 
 .manual-team {
@@ -29,4 +30,20 @@
 
 .panel-body {
   margin: 5px 0 5px 15px;
+}
+
+.manual-body {
+  width: calc(100% - 300px);
+}
+
+.search-body {
+  height: 250px;
+  width: 300px;
+  margin-right: 50px;
+  background-color: #fef4f4;
+  border-radius: 30px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border: solid 1px rosybrown;
 }

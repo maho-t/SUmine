@@ -25,6 +25,6 @@
 
 <div class="delete-user">
   <% if @user.id == current_user.id%>
-    <%= link_to "ユーザーを削除する", user_path(@user.id), method: :delete, data: {confirm: "参加しているチームからも削除されますが、本当に削除しますか？"} %>
+    <%= link_to "ユーザーを削除する", user_path(@user.id), method: :delete, data: {confirm: "参加しているチームからも削除されますが、本当に削除しますか？"}, class: "link" %>
   <% end %>
 </div>
