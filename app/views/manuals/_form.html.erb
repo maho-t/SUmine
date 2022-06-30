@@ -18,7 +18,7 @@
     <div class="manual-field">
       <%= form.file_field :shiryo%>
     </div>
-    <% if local_assigns[:edit_flag].present? %>      
+    <% if local_assigns[:edit_flag].present? %>
       <%= form_with(model: @manual, local: true) do |form| %>
         <div class="manual-field-btn">
           <%= form.submit "編集を確定する", class: "btn btn-danger" %>
