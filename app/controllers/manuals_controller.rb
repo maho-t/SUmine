@@ -19,11 +19,13 @@ class ManualsController < ApplicationController
   end
 
   def show
+    @team = @manual.team
     @comment = Comment.new
     @comments = @manual.comments.includes(:user)
   end
 
   def edit
+    @team = @manual.team
     unless current_user.id == @manual.user_id
       redirect_to action: :show
     end

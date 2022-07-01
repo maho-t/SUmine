@@ -30,33 +30,33 @@ crumb :team_new do
 end
 
 # マニュアル
-crumb :manual_index do |manual|
+crumb :manual_index do
   link "マニュアル一覧", manuals_path
   parent :root
 end
 
-crumb :manual_show do |manual|
-  link "#{manual.title}", manual_path(manual)
-  parent :manual_index, manual
-end
-
-crumb :manual_new do |manual|
+crumb :manual_new do
   link "新規マニュアル作成", new_manual_path
   parent :manual_index
 end
 
-crumb :manual_edit do |manual|
-  link "#{manual.title}の編集", edit_manual_path(manual)
-  parent :manual_show, manual
+crumb :manual_each do |team|
+  link "#{team.name}", each_manuals_path(team.id)
+  parent :manual_index, team
+end
+
+crumb :manual_show do |team, manual|
+  link "#{manual.title}", manual_path(team.id, manual.id)
+  parent :manual_each, team, manual
+end
+
+crumb :manual_edit do |team, manual|
+  link "#{manual.title}の編集", edit_manual_path(team.id, manual.id)
+  parent :manual_show, team, manual
 end
 
 crumb :manual_search do |manual|
   link "検索結果", search_manuals_path
-  parent :manual_index
-end
-
-crumb :manual_each do |team|
-  link "#{team.name}のマニュアル一覧", each_manuals_path(team)
   parent :manual_index
 end
 
