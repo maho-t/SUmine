@@ -73,7 +73,7 @@
 }
 
 // チームごと一覧
-.all-manual {
+.manual-all {
   width: 400px;
   font-size: 30px;
   font-family: monospace;
@@ -88,4 +88,28 @@
 
 .manuals {
   padding: 5px;
+}
+
+// 詳細
+
+.manual-edit {
+  margin: 20px;
+}
+
+.manual-cont {
+  width: 300px;
+  font-size: 20px;
+  font-family: monospace;
+  color: gray;
+  border-left: solid 2px rosybrown;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.mnl {
+  margin: 0 0 15px 10px;
+}
+
+.comment-form {
+  margin: 30px 0;
 }

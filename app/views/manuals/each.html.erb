@@ -1,4 +1,3 @@
-<h2><%= "#{@team.name}チームのマニュアル" %></h2>
 <% breadcrumb :manual_each, @team %>
 
 <%# マニュアルの新規作成 %>
@@ -8,7 +7,7 @@
 
 <div class="manual">
   <div class="manual-body">
-    <div class="all-manual">マニュアル一覧</div>
+    <div class="manual-all">マニュアル一覧</div>
       <% @team.manuals.each do |manual| %>
         <div class="manuals">
           <div class="news">

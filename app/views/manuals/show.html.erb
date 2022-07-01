@@ -1,45 +1,68 @@
-<h1>マニュアル詳細画面</h1>
-<% breadcrumb :manual_show, @team, @manual %>
-<% if current_user.id == @manual.user_id %>
-  <%= link_to "編集する", edit_manual_path(@manual.id) %>
-  <%= link_to "削除する", manual_path(@manual.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
-<% end %>
-<h4>チーム名</h4>
-<%= @manual.team.name%>
-<h4>マニュアルタイトル</h4>
-<%= @manual.title %>
-<h4>マニュアル詳細</h4>
-<%= simple_format(@manual.manual_text) %>
-<% if @manual.shiryo? %>
-  <h4>添付資料</h4>
-  <%= link_to '添付資料を開く', @manual.shiryo.url, target: :_blank, rel: "noopener noreferrer" %>
-<% end %>
-<h4>マニュアル作成日</h4>
-<%= @manual.created_at.strftime('%Y/%m/%d') %>
-<h4>マニュアル作成者</h4>
-<%= @manual.user.full_name %>
+<div class="manual">
+  <div class="manual-body">
+    <div class="manual-all">
+      <%= @manual.title %>
+    </div>
 
-<%# 備考機能 %>
-<div class="comment-cont">
-  <% if current_user.id == @manual.user_id %>
-    <%= form_with(model: [@manual, @comment], local: true) do |form| %>
-      <%= form.text_area :comment, placeholder: "備考を記入する", rows: "2" %>
-      <%= form.submit "SEND" %>
-    <% end %>
-  <% end %>
-  <div class="comments">
-    <h4>＜備考欄＞</h4>
-    <% @comments.each do |comment| %>
-      <p>
-        <%= comment.comment %>
-        <br>
-        <strong>記入者：<%= comment.user.full_name %></strong>
-      </p>
-      <% if current_user.id == comment.user_id%>
-        備考の
-        <%= link_to "編集", edit_manual_comment_path(@manual, comment) %>
-        <%= link_to "削除", manual_comment_path(@manual, comment), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+    <% breadcrumb :manual_show, @team, @manual %>
+
+    <div class="manual-edit">
+      <% if current_user.id == @manual.user_id %>
+        <%= link_to "編集", edit_manual_path(@manual.id), class: "link" %>
+        <%= link_to "削除", manual_path(@manual.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
       <% end %>
+    </div>
+    <div class="manual-cont">チーム名</div>
+    <div class="mnl">
+      <%= @manual.team.name%>
+    </div>
+    <div class="manual-cont">マニュアルタイトル</div>
+    <div class="mnl">
+      <%= @manual.title %>
+    </div>
+    <div class="manual-cont">マニュアル詳細</div>
+    <div class="mnl">
+      <%= simple_format(@manual.manual_text) %>
+    </div>
+    <% if @manual.shiryo? %>
+      <div class="manual-cont">添付資料</div>
+      <div class="mnl">
+        <%= link_to '添付資料を開く', @manual.shiryo.url, target: :_blank, rel: "noopener noreferrer", class: "link" %>
+      </div>
     <% end %>
+    <div class="manual-cont">マニュアル作成日</div>
+    <div class="mnl">
+      <%= @manual.created_at.strftime('%Y/%m/%d') %>
+    </div>
+    <div class="manual-cont">マニュアル作成者</div>
+    <div class="mnl">
+      <%= @manual.user.full_name %>
+    </div>
+
+    <%# 備考機能 %>
+    <div class="comment-cont">
+      <div class="comment-form">
+        <% if current_user.id == @manual.user_id %>
+          <%= form_with(model: [@manual, @comment], local: true) do |form| %>
+            <%= form.text_area :comment, placeholder: "備考を記入する", cols: "80", rows: "10" %>
+            <%= form.submit "追加", class: "btn btn-danger" %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="comments">
+        <div class="manual-cont">備考</div>
+        <% @comments.each do |comment| %>
+          <p>
+            <%= simple_format(comment.comment) %>
+            <br>
+            <strong>記入者：<%= comment.user.full_name %></strong>
+          </p>
+          <% if current_user.id == comment.user_id%>
+            備考の
+            <%= link_to "編集", edit_manual_comment_path(@manual, comment), class: "link" %>
+            <%= link_to "削除", manual_comment_path(@manual, comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "link" %>
+          <% end %>
+        <% end %>
+      </div>
   </div>
 </div>
