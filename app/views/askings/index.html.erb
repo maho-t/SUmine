@@ -1,6 +1,13 @@
-<h1>問い合わせ選択画面</h1>
+<h2>問い合わせ</h2>
 <% breadcrumb :asking_index %>
-<h4>問い合わせを確認するチームを選ぶ</h4>
-<% current_user.teams.each do |team| %>
-  <%= link_to team.name, choose_team_askings_path(team), method: :get %><br>
-<% end %>
+<div class="asking">
+  <div class="asking-team">確認したい所属を選ぶ</div>
+  <% current_user.teams.each do |team| %>
+    <ul>
+      <li>
+        <div class="niko">☺︎</div>
+        <%= link_to team.name, choose_team_askings_path(team), method: :get, class: "link" %>
+      </li>
+    </ul>
+  <% end %>
+</div>

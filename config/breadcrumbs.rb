@@ -16,7 +16,7 @@ end
 # チーム
 crumb :team_show do |team|
   link "#{team.name}の詳細", team_path(team)
-  parent :root, team, manual
+  parent :root, team
 end
 
 crumb :team_edit do |team|
