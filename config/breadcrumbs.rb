@@ -16,7 +16,7 @@ end
 # チーム
 crumb :team_show do |team|
   link "#{team.name}の詳細", team_path(team)
-  parent :root, team
+  parent :root, team, manual
 end
 
 crumb :team_edit do |team|
@@ -30,9 +30,9 @@ crumb :team_new do
 end
 
 # マニュアル
-crumb :manual_index do
-  link "マニュアル一覧", manuals_path
-  parent :root
+crumb :manual_index do |team, manual|
+  link "マニュアル一覧", manuals_path(team, manual)
+  parent :root, team, manual
 end
 
 crumb :manual_new do
@@ -40,9 +40,9 @@ crumb :manual_new do
   parent :manual_index
 end
 
-crumb :manual_each do |team|
-  link "#{team.name}", each_manuals_path(team.id)
-  parent :manual_index, team
+crumb :manual_each do |team, manual|
+  link "#{team.name}", each_manuals_path(team.id, manual)
+  parent :manual_index, team, manual
 end
 
 crumb :manual_show do |team, manual|
@@ -51,7 +51,7 @@ crumb :manual_show do |team, manual|
 end
 
 crumb :manual_edit do |team, manual|
-  link "#{manual.title}の編集", edit_manual_path(team.id, manual.id)
+  link "編集", edit_manual_path(team.id, manual.id)
   parent :manual_show, team, manual
 end
 

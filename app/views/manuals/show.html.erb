@@ -41,14 +41,6 @@
 
     <%# 備考機能 %>
     <div class="comment-cont">
-      <div class="comment-form">
-        <% if current_user.id == @manual.user_id %>
-          <%= form_with(model: [@manual, @comment], local: true) do |form| %>
-            <%= form.text_area :comment, placeholder: "備考を記入する", cols: "80", rows: "10" %>
-            <%= form.submit "追加", class: "btn btn-danger" %>
-          <% end %>
-        <% end %>
-      </div>
       <div class="comments">
         <div class="manual-cont">備考</div>
         <% @comments.each do |comment| %>
@@ -61,6 +53,15 @@
             備考の
             <%= link_to "編集", edit_manual_comment_path(@manual, comment), class: "link" %>
             <%= link_to "削除", manual_comment_path(@manual, comment), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "link" %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="comment-form">
+        <% if current_user.id == @manual.user_id %>
+          <%= form_with(model: [@manual, @comment], local: true) do |form| %>
+            <%= form.text_area :comment, placeholder: "備考を記入する", cols: "80", rows: "10" %>
+            <%= form.submit "追加", class: "btn btn-danger" %>
           <% end %>
         <% end %>
       </div>

@@ -33,7 +33,7 @@
 }
 
 .manual-body {
-  width: calc(100% - 300px);
+  width: calc(100% - 200px);
 }
 
 // 検索
@@ -74,7 +74,7 @@
 
 // チームごと一覧
 .manual-all {
-  width: 400px;
+  width: 500px;
   font-size: 30px;
   font-family: monospace;
   color: dimgray;
@@ -117,3 +117,5 @@
 .comment-edit {
   margin-left: 20px;
 }
+
+// 検索結果
