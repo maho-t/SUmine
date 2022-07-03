@@ -1,13 +1,35 @@
-<%= form_with(model: @manual, local: true) do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
-  <select name="manual[team_id]">
-    <option value="">マニュアルを作成するチームを選んでください</option>
-    <% Team.where(id: current_user.teams.ids).each do |team| %>
-      <option value=<%= team.id %>><%= team.name %></option>
+<div class="manual-create-form">
+  <%= form_with(model: @manual, local: true) do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
+    <div class="manual-field">
+      <select name="manual[team_id]">
+        <option value="">マニュアルを投稿するチームを選ぶ</option>
+        <% Team.where(id: current_user.teams.ids).each do |team| %>
+          <option value=<%= team.id %>><%= team.name %></option>
+        <% end %>
+      </select>
+    </div>
+    <div class="manual-field">
+      <%= form.text_field :title, placeholder: "タイトル", size: "40" %>
+    </div>
+    <div class="manual-field">
+      <%= form.text_area :manual_text, placeholder: "詳細", size: "80x30" %>
+    </div>
+    <div class="manual-field">
+      <%= form.file_field :shiryo%>
+    </div>
+    <% if local_assigns[:edit_flag].present? %>
+      <%= form_with(model: @manual, local: true) do |form| %>
+        <div class="manual-field-btn">
+          <%= form.submit "編集を確定する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= form_with(model: @manual, local: true) do |form| %>
+        <div class="manual-field-btn">
+          <%= form.submit "新規投稿する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
     <% end %>
-  </select>
-  <%= form.text_field :title, placeholder: "タイトル" %>
-  <%= form.text_area :manual_text, placeholder: "詳細" %>
-  <%= form.file_field :shiryo%>
-  <%= form.submit "SEND" %>
-<% end %>
+  <% end %>
+</div>

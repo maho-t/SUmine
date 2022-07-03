@@ -1,3 +1,121 @@
-// Place all the styles related to the manuals controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.manual-create {
+  margin: 20px 0 20px 20px; 
+ }
+
+ .manual {
+  margin-left: 20px;
+  display: flex;
+}
+
+.manual-team {
+  width: 250px;
+  border-bottom: double 5px rosybrown;
+  padding-bottom: 5px;
+  margin: 10px;
+}
+
+.manual-team-each {
+  margin: 5px 0 30px 20px;
+}
+
+.migi {
+  margin-right: 10px;
+  font-size: 20px;
+  color: burlywood;
+}
+
+.panel-title {
+  margin: 5px 0 0 20px;
+}
+
+.panel-body {
+  margin: 5px 0 5px 15px;
+}
+
+.manual-body {
+  width: calc(100% - 200px);
+}
+
+// 検索
+.search-body {
+  height: 200px;
+  width: 200px;
+  margin-right: 50px;
+  background-color: white;
+  border-radius: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border: solid 1px rosybrown;
+}
+
+// 新規作成
+.manual-form {
+  width: 800px;
+  height: 80%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 5px 0 0 20px;
+}
+
+// フォーム
+.manual-create-form {
+  display: flex;
+}
+
+.manual-field {
+  margin: 20px 0 0 20px;
+}
+
+.manual-field-btn {
+  width: 60px;
+  margin: 30px auto;
+}
+
+// チームごと一覧
+.manual-all {
+  width: 500px;
+  font-size: 30px;
+  font-family: monospace;
+  color: dimgray;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border-left: solid 5px palevioletred;
+  border-bottom: solid 1px thistle;
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+.manuals {
+  padding: 5px;
+}
+
+// 詳細
+
+.manual-edit {
+  margin: 20px;
+}
+
+.manual-cont {
+  width: 300px;
+  font-size: 20px;
+  font-family: monospace;
+  color: gray;
+  border-left: solid 2px rosybrown;
+  padding-left: 10px;
+  margin-bottom: 5px;
+}
+
+.mnl {
+  margin: 0 0 15px 10px;
+}
+
+.comment-form {
+  margin: 30px 0;
+}
+
+.comment-edit {
+  margin-left: 20px;
+}
+
+// 検索結果
