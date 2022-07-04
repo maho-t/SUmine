@@ -1,13 +1,15 @@
 <h2>問い合わせ</h2>
 <% breadcrumb :asking_index %>
 <div class="asking">
-  <div class="asking-team">確認したい所属を選ぶ</div>
-  <% current_user.teams.each do |team| %>
-    <ul>
-      <li>
-        <div class="niko">☺︎</div>
-        <%= link_to team.name, choose_team_askings_path(team), method: :get, class: "link" %>
-      </li>
-    </ul>
-  <% end %>
+  <div class="asking-index">
+    <div class="asking-team">確認したい所属を選ぶ</div>
+    <% current_user.teams.each do |team| %>
+      <ul>
+        <li>
+          <div class="niko">☺︎</div>
+          <%= link_to team.name, choose_team_askings_path(team), method: :get, class: "link" %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
 </div>

@@ -1,3 +1,13 @@
-<h1>問い合わせ新規作成画面</h1>
+<h2>問い合わせ</h2>
 <% breadcrumb :asking_new, @team %>
-<%= render partial: "form", locals: { team: @team, asking: @asking}%>
+<div class="asking-container">
+  <div class="asking">
+    <div class="asking-body">
+      <div class="asking-all">問い合わせ新規作成</div>
+    </div>
+  </div>
+
+  <div class="asking-form">
+    <%= render partial: "form", locals: { team: @team, asking: @asking}%>
+  </div>
+</div>

@@ -13,7 +13,7 @@
 
     <%# タグ機能 %>
     <div class="tag">
-      <div class="tag-top">タグ一覧</div>
+      <div class="tag-top"><b>タグ一覧</b></div>
       <% if @tags.present? %>
         <div class="tags">
           <% @tags.each do |tag| %>
@@ -25,15 +25,17 @@
       <% end %>
 
       <% if @asking.present? %>
-        <p><%= "#{@tag}の問い合わせ一覧" %></p>
-        <% @asking.each do |asking| %>
-          <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get, class: "link" %><br>
-        <% end %>
+        <div class="tag-top"><b><%= "タグ：#{@tag}" %></b></div>
+        <div class="tags">
+          <% @asking.each do |asking| %>
+            <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get, class: "link" %><br>
+          <% end %>
+        </div>
       <% end %>
     </div>
 
     <div class="all-asking">
-      <div class="asking-top">問い合わせ一覧</div>
+      <div class="asking-top"><b>問い合わせ一覧</b></div>
       <% @askings.each do |asking| %>
         <ul>
           <li>
