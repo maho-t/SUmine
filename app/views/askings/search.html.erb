@@ -1,15 +1,39 @@
-<h1>検索結果画面</h1>
+<h2>問い合わせ：<%= @team.name %></h2>
 <% breadcrumb :asking_search, @team, @asking %>
-<%= render 'search', url: search_team_askings_path %>
 
-<%# 問い合わせ新規作成 %>
 <div class="asking-create">
-  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+  <%= link_to "問い合わせを作成する", new_team_asking_path, class: "btn btn-outline-danger" %>
 </div>
 
-<%= @team.name %>の問い合わせ一覧<br>
+<div class="result">検索結果</div>
 
-<%# 問い合わせ検索結果 %>
-<% @askings.each do |asking| %>
-  <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
-<% end %>
+<div class="asking">
+  <%# 問い合わせ検索結果 %>
+  <div class="asking-body">
+    <% if @askings.present? %>
+      <div class="all-asking">
+        <% @askings.each do |asking| %>
+          <ul>
+            <li>
+              <div class="news">
+                <div class="newlabel">
+                  <%= render 'shared/new_label' if asking.new_arrival? %>
+                </div>
+                <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get, class: "link" %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      </div>
+    <% else %>
+      <p>キーワードに該当する問い合わせはありません</p>
+    <% end %>
+  </div>
+
+  <%# 検索機能 %>
+  <div class="search-form">
+    <div class="search-form">
+      <%= render 'search', url: search_team_askings_path, q: @q %>
+    </div>
+  </div>
+</div>
