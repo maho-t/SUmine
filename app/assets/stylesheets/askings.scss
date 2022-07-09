@@ -1,3 +1,95 @@
-// Place all the styles related to the askings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.asking {
+  margin-left: 20px;
+  display: flex;
+}
+
+.asking-team {
+  font-size: 20px;
+  width: 300px;
+  border-bottom: double 5px rosybrown;
+  padding-bottom: 5px;
+  margin: 20px 10px;
+}
+
+.niko {
+  margin-right: 10px;
+  font-size: 20px;
+  color: burlywood;
+}
+
+// 新規作成
+.asking-create {
+  margin: 20px 0 20px 20px; 
+ }
+
+//  一覧画面
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+  margin-bottom: 30px;
+}
+
+.tags div {
+  width: 30%;
+  margin-left: 5px;
+}
+
+.asking-body {
+  width: 70%;
+}
+
+// 新規作成
+.asking-all {
+  width: 500px;
+  font-size: 30px;
+  font-family: monospace;
+  color: dimgray;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  border-left: solid 5px palevioletred;
+  border-bottom: solid 1px thistle;
+  padding-left: 10px;
+  margin: 10px 0 30px 10px;
+}
+
+// フォーム
+.asking-create-form {
+  width: 80%;
+  margin: 10px 0 10px 80px;
+}
+
+h4 {
+  color: #6b3f31;
+}
+
+.asking-btn {
+  margin: 20px;
+}
+
+.form-tag {
+  margin: 5px;
+  color: gray;
+}
+
+// 検索結果画面
+.result {
+  font-size: 20px;
+  width: 250px;
+  border-bottom: double 5px rosybrown;
+  padding-bottom: 5px;
+  margin: 20px 10px;
+}
+
+// 詳細
+.asking-show {
+  font-size: 20px;
+  width: 100px;
+  border-bottom: double 5px rosybrown;
+  padding-bottom: 5px;
+  margin: 20px 10px;
+}
+
+.show-cont {
+  margin-left: 20px;
+}

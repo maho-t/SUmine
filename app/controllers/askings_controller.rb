@@ -1,6 +1,7 @@
 class AskingsController < ApplicationController
   before_action :set_asking, only: [:show, :edit, :update]
   before_action :find_team, only: [:choose, :new, :create, :search]
+  before_action :find_tag, only: [:choose, :new, :edit, :show]
 
   def index
     @teams = Team.all
@@ -8,10 +9,6 @@ class AskingsController < ApplicationController
 
   def choose
     @askings = @team.askings.includes(:user).order("created_at DESC").page(params[:page]).per(20)
-    @tags = @team.askings.tag_counts_on(:tags).most_used(20)
-    if @tag = params[:tag]
-      @asking = @team.askings.tagged_with(params[:tag])
-    end
   end
 
   def new
@@ -28,7 +25,7 @@ class AskingsController < ApplicationController
   end
 
   def show
-    @tags = @team.askings.tag_counts_on(:tags)
+    # @tags = @team.askings.tag_counts_on(:tags)
   end
 
   def edit
@@ -77,6 +74,13 @@ class AskingsController < ApplicationController
 
   def find_team
     @team = Team.find(params[:team_id])
+  end
+
+  def find_tag
+    @tags = @team.askings.tag_counts_on(:tags).most_used(20)
+    if @tag = params[:tag]
+      @asking = @team.askings.tagged_with(params[:tag])
+    end
   end
 
 end

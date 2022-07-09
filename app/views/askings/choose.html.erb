@@ -1,37 +1,60 @@
-<h1>選んだチームの問い合わせ画面</h1>
+<h2>問い合わせ：<%= @team.name %></h2>
 <% breadcrumb :asking_choose, @team %>
-<%= render 'search', url: search_team_askings_path, q: @q %>
-
-<%= @team.name %>の問い合わせ一覧
-
-<%# タグ機能 %>
-<% if @tags.present? %>
-  <% @tags.each do |tag| %>
-    <p><%= link_to "#{tag.name}(#{tag.taggings_count})", choose_team_askings_path(tag: tag.name) %></p>
-  <% end %>
-<% else %>
-    <P>登録されているタグはありません</p>
-<% end %>
-
-<% if @asking.present? %>
-  <p><%= "#{@tag}の問い合わせ一覧" %></p>
-  <% @asking.each do |asking| %>
-    <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %><br>
-  <% end %>
-<% end %>
 
 <div class="asking-create">
-  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+  <%= link_to "問い合わせを作成する", new_team_asking_path, class: "btn btn-outline-danger" %>
 </div>
 
-<h3>投稿された問い合わせ一覧</h3>
-<% @askings.each do |asking| %>
-  <div class="news">
-    <div class="newlabel">
-      <%= render 'shared/new_label' if asking.new_arrival? %>
+<div class="asking">
+  <div class="asking-body">
+    <div class="asking-team">
+      <%= @team.name %>の問い合わせ一覧
     </div>
-    <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get %>
-  </div>
-<% end %>
 
-<%= paginate @askings %>
+    <%# タグ機能 %>
+    <div class="tag">
+      <div class="tag-top"><b>タグ一覧</b></div>
+      <% if @tags.present? %>
+        <div class="tags">
+          <% @tags.each do |tag| %>
+            <div><%= link_to "#{tag.name}(#{tag.taggings_count})", choose_team_askings_path(tag: tag.name), class: "link" %></div>
+          <% end %>
+        </div>
+      <% else %>
+          <P>登録されているタグはありません</p>
+      <% end %>
+
+      <% if @asking.present? %>
+        <div class="tag-top"><b><%= "タグ：#{@tag}" %></b></div>
+        <div class="tags">
+          <% @asking.each do |asking| %>
+            <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get, class: "link" %><br>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="all-asking">
+      <div class="asking-top"><b>問い合わせ一覧</b></div>
+      <% @askings.each do |asking| %>
+        <ul>
+          <li>
+            <div class="news">
+              <div class="newlabel">
+                <%= render 'shared/new_label' if asking.new_arrival? %>
+              </div>
+              <%= link_to asking.question, team_asking_path(@team.id, asking.id), method: :get, class: "link" %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
+    <%= paginate @askings %>
+  </div>
+  <%# 検索機能 %>
+  <div class="search-form">
+    <%= render 'search', url: search_team_askings_path, q: @q %>
+  </div>
+
+</div>

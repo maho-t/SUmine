@@ -1,26 +1,56 @@
-<h1>問い合わせ詳細画面</h1>
+<h2>問い合わせ：<%= @team.name %></h2>
 <% breadcrumb :asking_show, @team, @asking %>
-<%= render 'search', url: search_team_askings_path, q: @q %>
 
 <div class="asking-create">
-  <%= link_to "問い合わせを作成する", new_team_asking_path %>
+  <%= link_to "問い合わせを作成する", new_team_asking_path, class: "btn btn-outline-danger" %>
 </div>
 
-<p>タグ↓</p>
-<% if @tags.present? %>
-  <% @tags.each do |tag| %>
-    <p><%= "#{tag.name}" %></p>
+<div class="edit">
+  <% if current_user.id == @asking.user_id %>
+    <%= link_to '編集', edit_team_asking_path(@team.id, @asking.id), class: "link" %>
+    <%= link_to '削除', team_asking_path(@team.id, @asking.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
   <% end %>
-<% end %>
-<P>質問内容↓</p>
-<%= @asking.question %>
-<p>回答内容↓</p>
-<%= @asking.answer %>
-<p>投稿者↓</p>
-<%= @asking.user.full_name %>
-<br>
-<p>投稿日↓</p>
-<%= @asking.created_at.strftime('%Y/%m/%d') %>
-<br>
-<%= link_to '問い合わせを編集する', edit_team_asking_path(@team.id, @asking.id)%>
-<%= link_to '問い合わせを削除する', team_asking_path(@team.id, @asking.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+</div>
+
+<div class="asking">
+  <div class="asking-body">
+    <div class="asking-show">タグ</div>
+    <% if @tags.present? %>
+      <div class="tags">
+        <% @asking.tags.each do |tag| %>
+          <%= tag.name %>
+        <% end %>
+      </div>
+    <% else %>
+      <P>タグは登録されていません</p>
+    <% end %>
+
+    <div class="asking-show">質問内容</div>
+    <div  style="position: relative; margin: 1em 0 1em 20px; border-radius: 10px; background: #dcdcdc; font-size: 100%; padding: 20px; width: 400px; ">
+      <%= simple_format(@asking.question) %>
+      <span  style="position: absolute; top: 50%; left: -30px; margin-top: -15px;  border: 15px solid transparent;  border-right: 20px solid #dcdcdc; width: 0;  height: 0;"></span>
+    </div>
+
+    <div class="asking-show">回答内容</div>
+    <div  style="position: relative; margin: 1em 0 1em 20px; border-radius:10px; background: #dcdcdc; font-size: 100%; padding: 20px; width: 400px;">
+      <%= simple_format(@asking.answer) %>
+      <span  style="position: absolute; top: 50%; right: -30px; margin-top: -15px;  border: 15px solid transparent;  border-left: 20px solid #dcdcdc; width: 0;  height: 0;"></span>
+    </div>
+
+
+    <div class="asking-show">投稿者</div>
+    <div class="show-cont">
+      <%= @asking.user.full_name %>
+    </div>
+
+    <div class="asking-show">投稿日</div>
+    <div class="show-cont">
+      <%= @asking.created_at.strftime('%Y年%m月%d日') %>
+    </div>
+  </div>
+
+  <%# 検索機能 %>
+  <div class="search-form">
+    <%= render 'search', url: search_team_askings_path, q: @q %>
+  </div>
+</div>

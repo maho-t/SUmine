@@ -21,13 +21,13 @@
     <% if local_assigns[:edit_flag].present? %>
       <%= form_with(model: @manual, local: true) do |form| %>
         <div class="manual-field-btn">
-          <%= form.submit "編集を確定する", class: "btn btn-danger" %>
+          <%= form.submit "確定する", class: "btn btn-danger" %>
         </div>
       <% end %>
     <% else %>
       <%= form_with(model: @manual, local: true) do |form| %>
         <div class="manual-field-btn">
-          <%= form.submit "新規投稿する", class: "btn btn-danger" %>
+          <%= form.submit "投稿する", class: "btn btn-danger" %>
         </div>
       <% end %>
     <% end %>

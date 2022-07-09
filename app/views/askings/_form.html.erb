@@ -1,7 +1,36 @@
-<%= form_with(model: [team, asking],url: asking.new_record? ? team_askings_path : team_asking_path(team.id, asking.id), local: true) do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
-  <%= form.text_area :question, placeholder: "質問" %>
-  <%= form.text_area :answer, placeholder: "回答" %>
-  <%= form.text_field :tag_list, placeholder: "タグ名" %>
-  <%= form.submit "SEND" %>
-<% end %>
+<div class="asking-create-form">
+  <%= form_with(model: [team, asking],url: asking.new_record? ? team_askings_path : team_asking_path(team.id, asking.id), local: true) do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
+    <div class="asking-field">
+      <h4>質問内容</h4>
+      <%= form.text_area :question, placeholder: "質問", size: "70x5" %>
+    </div>
+    <div class="asking-field">
+      <h4>回答内容</h4>
+      <%= form.text_area :answer, placeholder: "回答", size: "70x5" %>
+    </div>
+    <div class="asking-field">
+      <h4>タグ名</h4>
+      <%= form.text_field :tag_list, placeholder: "タグ名", size: "40" %>
+        <div class="form-tag">既存のタグ：
+          <% @tags.each do |tag| %>
+            <%= tag.name %> /
+          <% end %>
+        </div>
+    </div>
+
+    <% if local_assigns[:edit_flag].present? %>
+      <%= form_with(model: [team, asking],url: asking.new_record? ? team_askings_path : team_asking_path(team.id, asking.id), local: true) do |form| %>
+        <div class="asking-btn">
+          <%= form.submit "編集する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= form_with(model: [team, asking],url: asking.new_record? ? team_askings_path : team_asking_path(team.id, asking.id), local: true) do |form| %>
+        <div class="asking-btn">
+          <%= form.submit "投稿する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
