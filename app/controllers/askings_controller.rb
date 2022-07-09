@@ -1,7 +1,7 @@
 class AskingsController < ApplicationController
   before_action :set_asking, only: [:show, :edit, :update]
   before_action :find_team, only: [:choose, :new, :create, :search]
-  before_action :find_tag, only: [:choose, :new, :edit]
+  before_action :find_tag, only: [:choose, :new, :edit, :show]
 
   def index
     @teams = Team.all
@@ -25,7 +25,7 @@ class AskingsController < ApplicationController
   end
 
   def show
-    @tags = @team.askings.tag_counts_on(:tags)
+    # @tags = @team.askings.tag_counts_on(:tags)
   end
 
   def edit

@@ -7,7 +7,7 @@
 
     <% breadcrumb :manual_show, @team, @manual %>
 
-    <div class="manual-edit">
+    <div class="edit">
       <% if current_user.id == @manual.user_id %>
         <%= link_to "編集", edit_manual_path(@manual.id), class: "link" %>
         <%= link_to "削除", manual_path(@manual.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
