@@ -25,7 +25,6 @@ class AskingsController < ApplicationController
   end
 
   def show
-    # @tags = @team.askings.tag_counts_on(:tags)
   end
 
   def edit
