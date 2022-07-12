@@ -1,5 +1,5 @@
 <h2>マニュアル</h2>
-<% breadcrumb :manual_show, @team, @manual %>
+<% breadcrumb :manual_show, @manual, @team %>
 
 <div class="manual-create">
   <%= link_to "マニュアルを作成する", new_manual_path, class: "btn btn-outline-danger" %>
@@ -17,7 +17,7 @@
         <%= link_to "削除", manual_path(@manual.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
       <% end %>
     </div>
-    
+
     <div class="manual-cont">チーム名</div>
     <div class="mnl">
       <%= @manual.team.name%>
