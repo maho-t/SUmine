@@ -1,24 +1,48 @@
-<h2>メール詳細画面</h2>
+<h2>メール管理：<%= @team.name %></h2>
 <% breadcrumb :email_show, @team, @email %>
-<%= render 'search', url: search_team_emails_path, q: @q %>
 
 <div class="email-create">
-  <%= link_to "メールを保存する", new_team_email_path %>
+  <%= link_to "メールを保存する", new_team_email_path, class: "btn btn-outline-danger" %>
 </div>
 
-<P>件名</p>
-<%= @email.title %>
-<p>詳細</p>
-<%= @email.text %>
-<h4>添付資料</h4>
-  <% @email.images.each do |image| %>
-  <%= link_to "#{image.filename}を開く", image, target: :_blank, rel: "noopener noreferrer" %>
+<div class="edit">
+  <% if current_user.id == @email.user_id %>
+    <%= link_to '編集', edit_team_email_path(@team.id, @email.id), class: "link" %>
+    <%= link_to '削除', team_email_path(@team.id, @email.id), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link" %>
   <% end %>
-<p>投稿者</p>
-<%= @email.user.full_name %>
-<br>
-<p>投稿日</p>
-<%= @email.created_at.strftime('%Y/%m/%d') %>
-<br>
-<%= link_to 'このメールを編集する', edit_team_email_path(@team.id, @email.id) %>
-<%= link_to 'このメールを削除する', team_email_path(@team.id, @email.id), method: :delete, data: {confirm: "本当に削除しますか？"} %>
+</div>
+
+<div class="email">
+  <div class="email-body">
+    <div style="display: inline-block; background: #a9a9a9; padding: 5px 15px; color: #ffffff;"><strong>件名</strong></div>
+    <div style="width: 80%; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
+      <%= @email.title %>
+    </div>
+    <div style="display: inline-block; background: #a9a9a9; padding: 5px 15px; color: #ffffff;"><strong>詳細</strong></div>
+    <div style="width: 80%; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
+      <% if @emai.present? %>
+        <%= @email.text %>
+      <%else %>
+        <p>詳細は登録されていません</p>
+      <% end %>
+    </div>
+    <div style="display: inline-block; background: #a9a9a9; padding: 5px 30px; color: #ffffff;"><strong>保管メール</strong></div>
+    <div style="width: 80%; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
+      <% @email.images.each do |image| %>
+        <%= link_to "#{image.filename}を開く", image, target: :_blank, rel: "noopener noreferrer", class: "link" %>
+      <% end %>
+    </div>
+    <div style="display: inline-block; background: #a9a9a9; padding: 5px 15px; color: #ffffff;"><strong>投稿者</strong></div>
+    <div style="width: 200px; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
+      <%= @email.user.full_name %>
+    </div>
+    <div style="display: inline-block; background: #a9a9a9; padding: 5px 30px; color: #ffffff;"><strong>作成日</strong></div>
+    <div style="width: 200px; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
+      <%= @email.created_at.strftime('%Y年%m月%d日') %>
+    </div>
+  </div>
+
+  <div class="search-form">
+    <%= render 'search', url: search_team_emails_path, q: @q %>
+  </div>
+</div>
