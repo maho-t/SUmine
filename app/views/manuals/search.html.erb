@@ -9,15 +9,15 @@
 <div class="manual">
   <%# マニュアル検索結果 %>
   <div class="manual-body">
-    <% if @manual.present? %>
+    <% if @manuals.present? %>
       <% @manuals.each do |manual| %>
-      <div class="manual-all">
+      <div class="manual-team">
         <%= manual.team.name %>のマニュアル
       </div>
       <ul>
         <li>
-          <%= link_to manual.title, manual_path(manual.id), method: :get, class: "link"%>
-          　　　　　作成日：<%= manual.created_at.strftime('%Y/%m/%d') %>
+          <%= link_to manual.title, manual_path(manual.id), method: :get, class: "link"%><br>
+          　　　　　作成日：<%= manual.created_at.strftime('%Y年%m月%d日') %>
         </li>
       </ul>
       <% end %>
