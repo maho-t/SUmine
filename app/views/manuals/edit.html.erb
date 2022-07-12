@@ -1,12 +1,11 @@
 <h2>マニュアル</h2>
+<% breadcrumb :manual_edit, @manual, @team %>
 <div class="manual-container">
   <div class="manual">
     <div class="manual-body">
       <div class="manual-all">マニュアル編集</div>
     </div>
   </div>
-  <%# パンクズリストのエラー解消 %>
-  <%# <% breadcrumb :manual_edit, @team, @manual %> %>
   <div class="manual-form">
     <%= render partial: "form", locals: {manual: @manual, edit_flag: true} %>
   </div>
