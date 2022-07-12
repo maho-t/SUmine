@@ -1,3 +1,13 @@
-<h2>保存したメールの編集画面</h2>
+<h2>メール管理</h2>
 <% breadcrumb :email_edit, @team, @email %>
-<%= render partial: "form", locals: { team: @team, email: @email }%>
+
+<div class="email-container">
+  <div class="email">
+    <div class="email-body">
+      <div class="email-all">保管メールの編集</div>
+    </div>
+  </div>
+  <div class="email-form">
+    <%= render partial: "form", locals: { team: @team, email: @email, edit_flag: true }%>
+  </div>
+</div>

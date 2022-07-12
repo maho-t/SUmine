@@ -5,7 +5,8 @@
       <div class="manual-all">マニュアル編集</div>
     </div>
   </div>
-  <% breadcrumb :manual_edit, @team, @manual %>
+  <%# パンクズリストのエラー解消 %>
+  <%# <% breadcrumb :manual_edit, @team, @manual %> %>
   <div class="manual-form">
     <%= render partial: "form", locals: {manual: @manual, edit_flag: true} %>
   </div>

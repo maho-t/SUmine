@@ -1,9 +1,38 @@
-<%= form_with(model: [team, email], url: email.new_record? ? team_emails_path : team_email_path(team.id, email.id), local: true) do |form| %>
-  <%= render 'layouts/error_messages', model: form.object %>
-  <%= form.text_field :title, placeholder: "件名" %>
-  <%= form.text_area :text, placeholder: "詳細(任意)" %>
-  <%= form.file_field :images, multiple: true %>
-  <%= form.label :created_at, '登録日' %>
-  <%= form.date_field :created_at, class: 'form-control' %>
-  <%= form.submit "SEND" %>
-<% end %>
+<div class="email-create-form">
+  <%= form_with(model: [team, email], url: email.new_record? ? team_emails_path : team_email_path(team.id, email.id), local: true) do |form| %>
+    <%= render 'layouts/error_messages', model: form.object %>
+    <div class="email-field">
+      <h4>件名</h4>
+      <%= form.text_field :title, placeholder: "件名", size: "30" %>
+    </div>
+    <div class="email-field">
+      <h4>詳細</h4>
+      <%= form.text_area :text, placeholder: "詳細(任意)", size: "40x5" %>
+    </div>
+    <div class="email-field">
+      <h4>メールPDF</h4>
+      <%= form.file_field :images, multiple: true %>
+    </div>
+    <div class="email-field">
+      <% form.label :created_at, '登録日' %>
+    </div>
+    <div class="email-field-calendar">
+      <h4>作成日</h4>
+      <%= form.date_field :created_at, class: 'form-control' %>
+    </div>
+
+    <% if local_assigns[:edit_flag].present? %>
+      <%= form_with(model: [team, email], url: email.new_record? ? team_emails_path : team_email_path(team.id, email.id), local: true) do |form| %>
+        <div class="email-btn">
+          <%= form.submit "編集する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    <% else %>
+      <%= form_with(model: [team, email], url: email.new_record? ? team_emails_path : team_email_path(team.id, email.id), local: true) do |form| %>
+        <div class="email-btn">
+          <%= form.submit "保存する", class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

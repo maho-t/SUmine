@@ -1,21 +1,38 @@
-<h2>選択したチームのメール管理一覧画面</h2>
+<h2>メール管理</h2>
 <% breadcrumb :email_choose, @team %>
-<%= render 'search', url: search_team_emails_path, q: @q %>
-
-<%= @team.name %>のメール管理一覧
 
 <div class="email-create">
-  <%= link_to "メールを保存する", new_team_email_path %>
+  <%= link_to "メールを保存する", new_team_email_path, class: "btn btn-outline-danger" %>
 </div>
 
-<h3>管理しているメール一覧</h3>
-<% @emails.each do |email| %>
-  <div class="news">
-    <div class="newlabel">
-      <%= render 'shared/new_label' if email.new_record? %>
+<div class="email">
+  <div class="email-body">
+    <div class="email-team">
+      <%= @team.name %>の管理メール一覧
     </div>
-    <%= link_to email.title, team_email_path(@team.id, email.id), method: :get %>
-  </div>
-<% end %>
 
-<%= paginate @emails %>
+
+    <div class="all-email">
+      <div class="email-top"><b>メール</b></div>
+      <% @emails.each do |email| %>
+        <ul>
+          <li>
+            <div class="news">
+              <div class="newlabel">
+                <%= render 'shared/new_label' if email.new_arrival? %>
+              </div>
+              <%= link_to email.title, team_email_path(@team.id, email.id), method: :get, class: "link" %>
+            </div>
+          </li>
+        </ul>
+      <% end %>
+    </div>
+
+    <%= paginate @emails %>
+  </div>
+
+  <%# 検索 %>
+  <div class="search-form">
+    <%= render 'search', url: search_team_emails_path, q: @q %>
+  </div>
+</div>
