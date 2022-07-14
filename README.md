@@ -1,5 +1,5 @@
 # アプリケーション名
-**mine**
+#### **mine**
 ![minelogo](https://user-images.githubusercontent.com/102218486/179115974-66f4f42d-3e77-4ea7-a135-eca3a1ed1f14.png)
 
 # アプリケーション概要
