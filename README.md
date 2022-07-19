@@ -50,7 +50,9 @@ https://sumine.herokuapp.com/
 
 ## チーム
 - チーム作成
+[![Image from Gyazo](https://i.gyazo.com/7a5539f36676fde03cae6ea6f4d8b422.gif)](https://gyazo.com/7a5539f36676fde03cae6ea6f4d8b422)
 - チーム管理
+[![Image from Gyazo](https://i.gyazo.com/e3147161fe010ef7997f7e82ea85ea67.gif)](https://gyazo.com/e3147161fe010ef7997f7e82ea85ea67)
 
 ## マニュアル
 - 遷移
