@@ -44,7 +44,9 @@ https://sumine.herokuapp.com/
 
 ## ユーザー
 - ユーザー登録
+[![Image from Gyazo](https://i.gyazo.com/c495c207e86f78d62c41a015d2591572.gif)](https://gyazo.com/c495c207e86f78d62c41a015d2591572)
 - ユーザー管理
+[![Image from Gyazo](https://i.gyazo.com/a1f43fbb79203eb69c7418083892488e.gif)](https://gyazo.com/a1f43fbb79203eb69c7418083892488e)
 
 ## チーム
 - チーム作成
