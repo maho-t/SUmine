@@ -56,10 +56,15 @@ https://sumine.herokuapp.com/
 
 ## マニュアル
 - 遷移
+[![Image from Gyazo](https://i.gyazo.com/a33d4ef45d70370382d41ad3b98969cc.gif)](https://gyazo.com/a33d4ef45d70370382d41ad3b98969cc)
 - 投稿
-- コメント
+[![Image from Gyazo](https://i.gyazo.com/c5d69d2d66509623ae3a65dfd6db9bfa.gif)](https://gyazo.com/c5d69d2d66509623ae3a65dfd6db9bfa)
+- コメント投稿
+[![Image from Gyazo](https://i.gyazo.com/47f752f23140a6704a82dd4356eafc8d.gif)](https://gyazo.com/47f752f23140a6704a82dd4356eafc8d)
 - 編集、削除
+[![Image from Gyazo](https://i.gyazo.com/ac45002a5e2abaa0da00bcb0eec17139.gif)](https://gyazo.com/ac45002a5e2abaa0da00bcb0eec17139)
 - 検索
+[![Image from Gyazo](https://i.gyazo.com/c4cd24efe5aa4abd8813759f2aa0146c.gif)](https://gyazo.com/c4cd24efe5aa4abd8813759f2aa0146c)
 
 ## 問い合わせ
 - 遷移
