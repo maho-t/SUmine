@@ -80,9 +80,13 @@ https://sumine.herokuapp.com/
 
 ## メール
 - 遷移
+[![Image from Gyazo](https://i.gyazo.com/b6a6f6153d4a815eba29bca898a653f7.gif)](https://gyazo.com/b6a6f6153d4a815eba29bca898a653f7)
 - 投稿
+[![Image from Gyazo](https://i.gyazo.com/4f2b94ae1b98c413979bd3e8b2b82530.gif)](https://gyazo.com/4f2b94ae1b98c413979bd3e8b2b82530)
+- 編集、削除
+[![Image from Gyazo](https://i.gyazo.com/9951e558f6c91fededf8c09fe4caf253.gif)](https://gyazo.com/9951e558f6c91fededf8c09fe4caf253)
 - 検索
-- PDF資料へのアクセス
+[![Image from Gyazo](https://i.gyazo.com/fa240452f1baa71cae3ed6a9ffdd9c10.gif)](https://gyazo.com/fa240452f1baa71cae3ed6a9ffdd9c10)
 
 # 実装予定の機能
 現在、スケジュール管理機能を実装中。
