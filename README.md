@@ -44,30 +44,49 @@ https://sumine.herokuapp.com/
 
 ## ユーザー
 - ユーザー登録
+[![Image from Gyazo](https://i.gyazo.com/c495c207e86f78d62c41a015d2591572.gif)](https://gyazo.com/c495c207e86f78d62c41a015d2591572)
 - ユーザー管理
+[![Image from Gyazo](https://i.gyazo.com/a1f43fbb79203eb69c7418083892488e.gif)](https://gyazo.com/a1f43fbb79203eb69c7418083892488e)
 
 ## チーム
 - チーム作成
+[![Image from Gyazo](https://i.gyazo.com/7a5539f36676fde03cae6ea6f4d8b422.gif)](https://gyazo.com/7a5539f36676fde03cae6ea6f4d8b422)
 - チーム管理
+[![Image from Gyazo](https://i.gyazo.com/e3147161fe010ef7997f7e82ea85ea67.gif)](https://gyazo.com/e3147161fe010ef7997f7e82ea85ea67)
 
 ## マニュアル
 - 遷移
+[![Image from Gyazo](https://i.gyazo.com/a33d4ef45d70370382d41ad3b98969cc.gif)](https://gyazo.com/a33d4ef45d70370382d41ad3b98969cc)
 - 投稿
-- コメント
+[![Image from Gyazo](https://i.gyazo.com/c5d69d2d66509623ae3a65dfd6db9bfa.gif)](https://gyazo.com/c5d69d2d66509623ae3a65dfd6db9bfa)
+- コメント投稿
+[![Image from Gyazo](https://i.gyazo.com/47f752f23140a6704a82dd4356eafc8d.gif)](https://gyazo.com/47f752f23140a6704a82dd4356eafc8d)
 - 編集、削除
+[![Image from Gyazo](https://i.gyazo.com/ac45002a5e2abaa0da00bcb0eec17139.gif)](https://gyazo.com/ac45002a5e2abaa0da00bcb0eec17139)
 - 検索
+[![Image from Gyazo](https://i.gyazo.com/c4cd24efe5aa4abd8813759f2aa0146c.gif)](https://gyazo.com/c4cd24efe5aa4abd8813759f2aa0146c)
 
 ## 問い合わせ
 - 遷移
+[![Image from Gyazo](https://i.gyazo.com/4cbdddbc66165877e488e0cbea20d811.gif)](https://gyazo.com/4cbdddbc66165877e488e0cbea20d811)
 - 投稿
+[![Image from Gyazo](https://i.gyazo.com/60677b63c15d80db650b50ddfe2edb44.gif)](https://gyazo.com/60677b63c15d80db650b50ddfe2edb44)
+- 編集、削除
+[![Image from Gyazo](https://i.gyazo.com/4afd2d8ee894cce819f93dc41729cdea.gif)](https://gyazo.com/4afd2d8ee894cce819f93dc41729cdea)
 - タグ
+[![Image from Gyazo](https://i.gyazo.com/7889e784e9a751de8a9f519b907e74d4.gif)](https://gyazo.com/7889e784e9a751de8a9f519b907e74d4)
 - 検索
+[![Image from Gyazo](https://i.gyazo.com/9b2d9add21bd57c525e41ab9e9872449.gif)](https://gyazo.com/9b2d9add21bd57c525e41ab9e9872449)
 
 ## メール
 - 遷移
+[![Image from Gyazo](https://i.gyazo.com/b6a6f6153d4a815eba29bca898a653f7.gif)](https://gyazo.com/b6a6f6153d4a815eba29bca898a653f7)
 - 投稿
+[![Image from Gyazo](https://i.gyazo.com/4f2b94ae1b98c413979bd3e8b2b82530.gif)](https://gyazo.com/4f2b94ae1b98c413979bd3e8b2b82530)
+- 編集、削除
+[![Image from Gyazo](https://i.gyazo.com/9951e558f6c91fededf8c09fe4caf253.gif)](https://gyazo.com/9951e558f6c91fededf8c09fe4caf253)
 - 検索
-- PDF資料へのアクセス
+[![Image from Gyazo](https://i.gyazo.com/fa240452f1baa71cae3ed6a9ffdd9c10.gif)](https://gyazo.com/fa240452f1baa71cae3ed6a9ffdd9c10)
 
 # 実装予定の機能
 現在、スケジュール管理機能を実装中。

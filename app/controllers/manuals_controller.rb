@@ -32,6 +32,7 @@ class ManualsController < ApplicationController
   end
 
   def update
+    @team = @manual.team
     if @manual.update(manual_params)
       redirect_to action: :show
     else

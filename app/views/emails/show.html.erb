@@ -20,8 +20,8 @@
     </div>
     <div style="display: inline-block; background: #a9a9a9; padding: 5px 15px; color: #ffffff;"><strong>詳細</strong></div>
     <div style="width: 80%; padding: 10px; margin-bottom: 30px; border: 2px solid #a9a9a9;">
-      <% if @emai.present? %>
-        <%= @email.text %>
+      <% if @email.present? %>
+        <%= simple_format(@email.text) %>
       <%else %>
         <p>詳細は登録されていません</p>
       <% end %>
