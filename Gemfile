@@ -61,3 +61,4 @@ gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'kaminari', '~> 1.2.1'
+gem 'simple_calendar', "~> 2.0"
