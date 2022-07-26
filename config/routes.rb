@@ -17,6 +17,7 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
+    resources :calendars, only: :index
   end
   resources :users, only: [:index, :show, :destroy]
   resources :manuals do
