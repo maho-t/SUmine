@@ -9,10 +9,10 @@
 https://sumine.herokuapp.com/
 
 # テスト用アカウント
-- Basic認証パスワード：
-- Basic認証ID：
-- メールアドレス：
-- パスワード：
+- Basic認証パスワード：0829
+- Basic認証ID：owner
+- メールアドレス：taro@seisen-u.ac.jp
+- パスワード：aaa111
 
 # 利用方法
 ## 業務マニュアル管理
