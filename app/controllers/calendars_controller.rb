@@ -11,13 +11,13 @@ class CalendarsController < ApplicationController
 
   def create
     Calendar.create(calendar_params)
-    redirect_to team_calendars_path
+    redirect_to calendars_path
   end
 
   private
 
   def calendar_params
-    params.require(:calendar).permit(:title)
+    params.require(:calendar).permit(:title).merge(user_id: current_user.id)
   end
   
 end

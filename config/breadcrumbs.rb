@@ -124,6 +124,6 @@ end
 
 # カレンダー
 crumb :calendar_index do |calendar|
-  link "業務管理", team_calendars_path
+  link "業務管理", calendars_path
   parent :root
 end

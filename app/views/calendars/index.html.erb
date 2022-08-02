@@ -1,6 +1,27 @@
 <h2>業務管理</h2>
 <% breadcrumb :calendar_index %>
 
-<%= month_calendar do |data| %>
- <%= data %>
-<% end %>
+    <%= form_with(model: @calendar, local: true) do |form| %>
+      <div class="title">
+        <div class="form-tag">業務</div>
+        <%= form.text_field :title %>
+      </div>
+<%# 
+    <div class="time">
+    <div class="form-tag">時間</div>
+    <%= form.datetime_select :start_time %>
+  <%# </div> %>
+
+      <div class="submit">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+    <%= month_calendar do |date, calendars| %>
+      <%= date.day %>
+      <% calendars.each do |calendar| %>
+        <div>
+          <%= calendar.title %>
+        </div>
+      <% end %>
+    <% end %>
