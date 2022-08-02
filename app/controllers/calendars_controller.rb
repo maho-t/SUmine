@@ -17,7 +17,7 @@ class CalendarsController < ApplicationController
   private
 
   def calendar_params
-    params.require(:calendar).permit(:title).merge(user_id: current_user.id)
+    params.require(:calendar).permit(:title, :start_time).merge(user_id: current_user.id)
   end
   
 end
