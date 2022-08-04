@@ -14,10 +14,10 @@ class CalendarsController < ApplicationController
     redirect_to calendars_path
   end
 
+
   private
 
   def calendar_params
     params.require(:calendar).permit(:title, :start_time).merge(user_id: current_user.id)
   end
-  
 end

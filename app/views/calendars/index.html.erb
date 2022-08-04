@@ -9,11 +9,19 @@
 
       <div class="time">
         <div class="form-tag">日付</div>
-        <%= form.datetime_select :start_time %>
+        <%= raw sprintf(
+          form.date_select(
+            :start_time,
+            use_month_numbers: true,
+            start_year: 2020,
+            end_year: (Time.now.year - 18),
+            default: Date.new(2022, 1, 1),
+            date_separator: '%s'),
+          '年', '月') + '日' %>
       </div>
 
       <div class="submit">
-        <%= form.submit %>
+        <%= form.submit "カレンダーに追加" %>
       </div>
     <% end %>
 
