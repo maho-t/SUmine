@@ -13,9 +13,7 @@
           form.date_select(
             :start_time,
             use_month_numbers: true,
-            start_year: 2020,
-            end_year: (Time.now.year - 18),
-            default: Date.new(2022, 1, 1),
+            end_year: (Time.now.year),
             date_separator: '%s'),
           '年', '月') + '日' %>
       </div>
@@ -30,6 +28,7 @@
       <% calendars.each do |calendar| %>
         <div>
           <%= calendar.title %>
+          <%= link_to "削除", calendar_path(@calendars.ids), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link-calendar" %>
         </div>
       <% end %>
     <% end %>

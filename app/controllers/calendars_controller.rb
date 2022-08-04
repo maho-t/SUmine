@@ -15,6 +15,11 @@ class CalendarsController < ApplicationController
     redirect_to calendars_path
   end
 
+  def destroy
+    @calendar = Calendar.find(params[:id])
+    @calendar.destroy
+    redirect_to calendars_path, notice: "削除しました"
+  end
 
   private
   def set_biginning_of_week

@@ -26,5 +26,5 @@ Rails.application.routes.draw do
       get 'each'
     end
   end
-  resources :calendars, only: [:index, :new, :create]
+  resources :calendars, only: [:index, :new, :create, :destroy]
 end
