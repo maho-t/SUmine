@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :askings
   has_many :comments
   has_many :emails
+  has_many :calendars
 
   def full_name
     self.last_name + " " + self.first_name
