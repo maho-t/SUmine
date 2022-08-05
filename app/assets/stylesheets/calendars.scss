@@ -1,4 +1,27 @@
+.calendar {
+  margin-left: 20px;
+  display: flex;
+}
+
+.calendar-form {
+  width: 350px;
+}
+
+.calendar-show {
+  width: calc(100vw - 350px);
+  margin: 15px;
+}
+
 .link-calendar {
   font-size: 12px;
   color: #942343;
+}
+
+.form-tag {
+  font-size: 20px;
+  color: #db7093;
+}
+
+.title, .time, .submit {
+  margin-top: 20px;
 }

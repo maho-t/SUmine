@@ -1,14 +1,16 @@
 <h2>業務管理</h2>
 <% breadcrumb :calendar_index %>
 
+<div class="calendar">
+  <div class="calendar-form">
     <%= form_with(model: @calendar, local: true) do |form| %>
       <div class="title">
-        <div class="form-tag">業務</div>
+        <div class="form-tag"><b>業務内容</b></div>
         <%= form.text_field :title %>
       </div>
 
       <div class="time">
-        <div class="form-tag">日付</div>
+        <div class="form-tag"><b>日付</b></div>
         <%= raw sprintf(
           form.date_select(
             :start_time,
@@ -22,7 +24,9 @@
         <%= form.submit "カレンダーに追加" %>
       </div>
     <% end %>
+  </div>
 
+  <div class="calendar-show">
     <%= month_calendar events: @calendars do |date, calendars| %>
       <%= date.day %>
       <% calendars.each do |calendar| %>
@@ -32,3 +36,5 @@
         </div>
       <% end %>
     <% end %>
+  </div>
+</div>
