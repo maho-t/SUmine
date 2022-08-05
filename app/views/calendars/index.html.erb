@@ -1,4 +1,40 @@
-<h2>カレンダー機能</h2>
+<h2>業務管理</h2>
+<% breadcrumb :calendar_index %>
 
-<%# 未実装 %>
-※今後実装を進める
+<div class="calendar">
+  <div class="calendar-form">
+    <%= form_with(model: @calendar, local: true) do |form| %>
+      <div class="title">
+        <div class="form-tag"><b>業務内容</b></div>
+        <%= form.text_field :title %>
+      </div>
+
+      <div class="time">
+        <div class="form-tag"><b>日付</b></div>
+        <%= raw sprintf(
+          form.date_select(
+            :start_time,
+            use_month_numbers: true,
+            end_year: (Time.now.year),
+            date_separator: '%s'),
+          '年', '月') + '日' %>
+      </div>
+
+      <div class="submit">
+        <%= form.submit "カレンダーに追加" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="calendar-show">
+    <%= month_calendar events: @calendars do |date, calendars| %>
+      <%= date.day %>
+      <% calendars.each do |calendar| %>
+        <div>
+          <%= calendar.title %>
+          <%= link_to "削除", calendar_path(@calendars.ids), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "link-calendar" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

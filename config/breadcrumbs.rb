@@ -121,3 +121,9 @@ crumb :email_search do |team|
   link "検索結果", search_team_emails_path(team)
   parent :email_choose, team
 end
+
+# カレンダー
+crumb :calendar_index do |calendar|
+  link "業務管理", calendars_path
+  parent :root
+end
